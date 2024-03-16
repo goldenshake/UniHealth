@@ -5,16 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".home">
 
 
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/info" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Tell Us About Yourself"
         android:textSize="19sp" />
 
@@ -22,18 +29,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:paddingLeft="30dp"
+            android:paddingRight="60dp"
+            android:text="Name" />
+
         <EditText
             android:id="@+id/inputName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Name"
+            android:inputType="text" />
     </LinearLayout>
 
 
@@ -46,53 +57,62 @@
             android:id="@+id/fitnessgoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="Fitness Goal" />
+
         <EditText
             android:id="@+id/inputfitnessgoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Weight Loss, Muscle Gain, Improved Endurance, Flexibility, General Fitness"
+            android:inputType="text" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/diet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="Dietary Needs" />
+
         <EditText
             android:id="@+id/inputDiet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Vegetarian, Dairy- Free, No Restrictions, Low Carbs, Nut - Free, Vegan"
+            android:inputType="text" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:paddingLeft="30dp"
+            android:paddingRight="60dp"
+            android:text="Gender" />
+
         <EditText
             android:id="@+id/editTextText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Male/Female"
+            android:inputType="text" />
     </LinearLayout>
-
-
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
