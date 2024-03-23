@@ -28,8 +28,22 @@ class MainHome : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        viewPager = findViewById(R.id.scollviewpager)
+        previousButton = findViewById(R.id.previousButton)
+        nextButton = findViewById(R.id.nextButton)
 
+        // Set up ViewPager2 adapter
+        val adapter = RecipeAdapter(recipes)
+        viewPager.adapter = adapter
 
+        // Handle button clicks
+        previousButton.setOnClickListener {
+            viewPager.currentItem -= 1
+        }
+
+        nextButton.setOnClickListener {
+            viewPager.currentItem += 1
+        }
 
     }
 }

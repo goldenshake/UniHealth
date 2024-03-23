@@ -220,14 +220,11 @@
             android:textStyle="bold" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/featuredRecipesViewPager"
+            android:id="@+id/scollviewpager"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"/>
 
         <!-- Buttons for Scrolling -->
         <LinearLayout
@@ -240,6 +237,7 @@
                 android:id="@+id/previousButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:text="Previous" />
 
             <Button

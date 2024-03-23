@@ -29,9 +29,6 @@ class RecipeAdapter(private val recipes: List<Recipe>) :
     override fun getItemCount(): Int {
         return recipes.size
     }
-
-    // Data model for Recipe
-
-
 }
+
 
