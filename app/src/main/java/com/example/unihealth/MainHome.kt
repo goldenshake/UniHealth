@@ -12,6 +12,7 @@ class MainHome : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var previousButton: Button
     private lateinit var nextButton: Button
+    private lateinit var adapter: RecipeAdapter
     private val recipes = listOf(
         Recipe("Recipe 1", R.drawable.ic_launcher_foreground),
         Recipe("Recipe 2", R.drawable.health_care),
@@ -33,7 +34,7 @@ class MainHome : AppCompatActivity() {
         nextButton = findViewById(R.id.nextButton)
 
         // Set up ViewPager2 adapter
-        val adapter = RecipeAdapter(recipes)
+        adapter = RecipeAdapter(recipes)
         viewPager.adapter = adapter
 
         // Handle button clicks

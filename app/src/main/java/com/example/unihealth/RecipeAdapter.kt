@@ -24,6 +24,7 @@ class RecipeAdapter(private val recipes: List<Recipe>) :
         val recipe = recipes[position]
         holder.recipeName.text = recipe.name
         holder.recipeImage.setImageResource(recipe.imageResource)
+
     }
 
     override fun getItemCount(): Int {
