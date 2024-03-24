@@ -1,4 +1,4 @@
-package com.example.unihealth
+package com.example.unihealth.classes
 
 data class BodyWorkoutPlan(
     val name: String,

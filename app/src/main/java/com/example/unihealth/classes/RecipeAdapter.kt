@@ -1,4 +1,4 @@
-package com.example.unihealth
+package com.example.unihealth.classes
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihealth.R
 
 class RecipeAdapter(private val recipes: List<Recipe>) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {

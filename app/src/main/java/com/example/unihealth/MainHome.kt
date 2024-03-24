@@ -9,6 +9,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.example.unihealth.classes.Recipe
+import com.example.unihealth.classes.RecipeAdapter
 
 class MainHome : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2

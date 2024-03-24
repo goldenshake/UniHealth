@@ -1,4 +1,4 @@
-package com.example.unihealth
+package com.example.unihealth.classes
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihealth.R
 
 class WorkoutAdapter(private val workouts: MutableList<BodyWorkoutPlan>) : RecyclerView.Adapter<WorkoutViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutViewHolder {

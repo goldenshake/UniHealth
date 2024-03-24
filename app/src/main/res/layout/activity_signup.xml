@@ -28,8 +28,39 @@
         tools:layout_editor_absoluteX="146dp"
         tools:layout_editor_absoluteY="283dp" />
 
+
+    <!--    FullName-->
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailText"
+        android:id="@+id/fNameSignUpText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lNameSignUpText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--    Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailSignUpText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -41,8 +72,10 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <!--    Password-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordText"
+        android:id="@+id/passwordSignUpText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -54,8 +87,10 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <!--    Confirm Password-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmpasswordText"
+        android:id="@+id/confirmpasswordSignUpText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
@@ -68,10 +103,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Login" />
+        android:text="Sign Up" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

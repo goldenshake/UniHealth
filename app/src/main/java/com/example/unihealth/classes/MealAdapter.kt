@@ -1,3 +1,5 @@
+package com.example.unihealth.classes
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihealth.R
-import com.example.unihealth.RecipeMealPlans
 
 class MealAdapter(private val meals: MutableList<RecipeMealPlans>) : RecyclerView.Adapter<MealViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {

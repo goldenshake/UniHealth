@@ -1,6 +1,6 @@
 package com.example.unihealth
 
-import MealAdapter
+import com.example.unihealth.classes.MealAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.CheckBox
@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihealth.classes.RecipeMealPlans
 
 class MealPlans : AppCompatActivity() {
 

@@ -9,6 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihealth.classes.BodyWorkoutPlan
+import com.example.unihealth.classes.WorkoutAdapter
 
 class WorkoutPlan : AppCompatActivity() {
 
