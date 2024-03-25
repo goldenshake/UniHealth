@@ -40,7 +40,7 @@ class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(meal: RecipeMealPlans) {
         imageView.setImageResource(meal.image)
         nameTextView.text = meal.name
-        ingredientsTextView.text = "Ingredients: ${meal.ingredients.joinToString(", ")}"
-        calorieTextView.text = "Calories: ${meal.calories}"
+        ingredientsTextView.text = "${meal.ingredients.joinToString(", ")}"
+        calorieTextView.text = "Calories ~ ${meal.calories}"
     }
 }

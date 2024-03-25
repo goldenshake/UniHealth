@@ -19,11 +19,25 @@ class MealPlans : AppCompatActivity() {
 
     val mealList = listOf(
         RecipeMealPlans(
-            "Salad",
+            "Spicy Tofu Scramble",
             R.drawable.salad,
-            listOf("Lettuce", "Tomato", "Cucumber"),
-            150,
-            listOf("Vegetarian", "Low Carbs")
+            listOf("Saute Crumbled tofu, Chopped Onions, Bell peppers, Chili Powder, Vegetable Broth"),
+            300,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Black Bean Burger with avocado Cream",
+            R.drawable.spaguetti,
+            listOf("Black Beans, Zucchini, Bell Pepper, Flaxseed, Chili Powder, Smked Parika, Avocado, Lettuce Wrap"),
+            400,
+            listOf("Vegetarian, Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Hemp Seed and Chia Pudding(with Berries)",
+            R.drawable.spaguetti,
+            listOf("Hemp Seeds","Chia Seeds", "Almond Milk", "Coconut Milk", "Berries(fresh or frozen)"),
+            300,
+            listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
             "Pasta",
@@ -32,6 +46,48 @@ class MealPlans : AppCompatActivity() {
             300,
             listOf("Dairy-Free")
         ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        ),
+        RecipeMealPlans(
+            "Pasta",
+            R.drawable.spaguetti,
+            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            300,
+            listOf("Dairy-Free")
+        )
 
         )
 

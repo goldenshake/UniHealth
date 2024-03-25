@@ -7,20 +7,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:padding="10dp"
         android:layout_marginTop="10dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:orientation="vertical"
-            android:padding="4dp">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_gravity="center"
+                android:layout_height="130dp"
                 android:src="@drawable/salad" />
 
             <TextView
@@ -31,16 +31,17 @@
                 android:layout_marginTop="4dp"
                 android:text="Name"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/ingredientsTextView"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
                 android:layout_marginTop="4dp"
-                android:text="Ingredients"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:text="Ingredients" />
             <TextView
                 android:id="@+id/calorieTextView"
                 style="@style/TextAppearance.MaterialComponents.Body1"
@@ -48,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Calorie"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="14sp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
