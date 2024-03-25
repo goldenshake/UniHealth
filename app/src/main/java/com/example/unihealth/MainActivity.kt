@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.unihealth.classes.Constants
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 
@@ -56,7 +57,9 @@ class MainActivity : AppCompatActivity() {
                             ).show()
                             // Proceed to the next activity or perform any other action
                             val intent = Intent(this, MainHome::class.java)
+                            intent.putExtra(Constants.INTENT_EMAIL, email)
                             startActivity(intent)
+
                         } else {
                             Toast.makeText(
                                 this@MainActivity,
