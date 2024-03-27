@@ -49,26 +49,42 @@ class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         ingredientsTextView.text = "${meal.ingredients.joinToString(", ")}"
         calorieTextView.text = "Calories ~ ${meal.calories}"
 
+        when (category.size) {
+            1 -> {
+                when (category.getOrNull(0)) {
+                    "Vegetarian" -> category_icon1.setImageResource(R.drawable.vegetarian)
+                    "Dairy Free" -> category_icon1.setImageResource(R.drawable.dairyfree)
+                    "Low Carbs" -> category_icon1.setImageResource(R.drawable.lowcarb)
+                    "Nut Free" -> category_icon1.setImageResource(R.drawable.nutfree)
+                    "Vegan" -> category_icon1.setImageResource(R.drawable.vegan)
 
-        when (category.getOrNull(0)) {
-            "Vegetarian" -> category_icon1.setImageResource(R.drawable.vegetarian)
-            "Dairy Free" -> category_icon1.setImageResource(R.drawable.dairyfree)
-            "Low Carbs" -> category_icon1.setImageResource(R.drawable.lowcarb)
-            "Nut Free" -> category_icon1.setImageResource(R.drawable.nutfree)
-            "Vegan" -> category_icon1.setImageResource(R.drawable.vegan)
-            else -> category_icon1.visibility = View.GONE
-        }
-        if (category.size == 2) {
-            when (category[1]) {
-                "Vegetarian" -> category_icon2.setImageResource(R.drawable.vegetarian)
-                "Dairy Free" -> category_icon2.setImageResource(R.drawable.dairyfree)
-                "Low Carbs" -> category_icon2.setImageResource(R.drawable.lowcarb)
-                "Nut Free" -> category_icon2.setImageResource(R.drawable.nutfree)
-                "Vegan" -> category_icon2.setImageResource(R.drawable.vegan)
-                else -> category_icon1.visibility = View.GONE
+                }
+                category_icon2.visibility = View.GONE
             }
-        } else {
-            category_icon2.visibility = View.GONE
+
+            2 -> {
+
+                when (category.getOrNull(0)) {
+                    "Vegetarian" -> category_icon1.setImageResource(R.drawable.vegetarian)
+                    "Dairy Free" -> category_icon1.setImageResource(R.drawable.dairyfree)
+                    "Low Carbs" -> category_icon1.setImageResource(R.drawable.lowcarb)
+                    "Nut Free" -> category_icon1.setImageResource(R.drawable.nutfree)
+                    "Vegan" -> category_icon1.setImageResource(R.drawable.vegan)
+                }
+                category_icon2.visibility = View.VISIBLE
+                when (category.getOrNull(1)) {
+                    "Vegetarian" -> category_icon2.setImageResource(R.drawable.vegetarian)
+                    "Dairy Free" -> category_icon2.setImageResource(R.drawable.dairyfree)
+                    "Low Carbs" -> category_icon2.setImageResource(R.drawable.lowcarb)
+                    "Nut Free" -> category_icon2.setImageResource(R.drawable.nutfree)
+                    "Vegan" -> category_icon2.setImageResource(R.drawable.vegan)
+                }
+            }
+
+            else -> {
+                category_icon1.visibility = View.GONE
+                category_icon2.visibility = View.GONE
+            }
         }
 
     }

@@ -115,51 +115,54 @@ class MealPlans : AppCompatActivity() {
             R.drawable.spaguetti,
             listOf(
                 "Firm tofu, cubed",
-                        "Broccoli florets",
-                        "Bell peppers(red, green, yellow)",
-                        "Snow peas",
-                        "Carrots, julienned",
-                        "Garlic, minced",
-                        "Soy sauce",
-                        "Sesame oil",
-                        "Brown rice(optional, for serving)"
+                "Broccoli florets",
+                "Bell peppers(red, green, yellow)",
+                "Snow peas",
+                "Carrots, julienned",
+                "Garlic, minced",
+                "Soy sauce",
+                "Sesame oil",
+                "Brown rice(optional, for serving)"
             ),
             300,
             listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Turkey and Vegetable Quinoa Bowl",
+            "Salmon with Roasted Vegetables",
             R.drawable.spaguetti,
-            listOf("Lean ground turkey",
-                    "Quinoa, cooked",
-                    "Zucchini, diced",
-                    "Yellow squash, diced",
-                    "Red bell pepper, diced",
-                    "Onion, diced",
-                    "Garlic, minced",
-                    "Olive oil",
-                    "Salt and pepper to taste",
-                    "Fresh parsley for garnish"),
-            400,
+            listOf(
+                "Salmon fillets",
+                "Asparagus spears",
+                "Brussels sprouts, halved",
+                "Cherry tomatoes",
+                "Red onion, sliced",
+                "Olive oil",
+                "Lemon juice",
+                "Garlic powder",
+                "Paprika",
+                "Salt and pepper to taste"
+            ),
+            380,
             listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Salmon with Roasted Vegetables",
+            "Turkey and Vegetable Quinoa Bowl",
             R.drawable.spaguetti,
-            listOf("Salmon fillets",
-                    "Asparagus spears",
-                    "Brussels sprouts, halved",
-                    "Cherry tomatoes",
-                    "Red onion, sliced",
-                    "Olive oil",
-                    "Lemon juice",
-                    "Garlic powder",
-                    "Paprika",
-                    "Salt and pepper to taste"),
-            380,
+            listOf(
+                "Lean ground turkey",
+                "Quinoa, cooked",
+                "Zucchini, diced",
+                "Yellow squash, diced",
+                "Red bell pepper, diced",
+                "Onion, diced",
+                "Garlic, minced",
+                "Olive oil",
+                "Salt and pepper to taste",
+                "Fresh parsley for garnish"
+            ),
+            400,
             listOf("Dairy Free")
         )
-
     )
 
     @SuppressLint("NotifyDataSetChanged")
