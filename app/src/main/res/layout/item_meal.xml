@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
+
     <androidx.cardview.widget.CardView
-        android:layout_width="160dp"
+        android:id="@+id/meal_card"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="160dp"
@@ -19,8 +22,8 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="130dp"
-                android:layout_gravity="center"
                 android:layout_height="130dp"
+                android:layout_gravity="center"
                 android:src="@drawable/salad" />
 
             <TextView
@@ -38,21 +41,46 @@
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
                 android:layout_marginTop="4dp"
+                android:text="Ingredients"
                 android:textAlignment="center"
-                android:text="Ingredients" />
+                android:textSize="10sp" />
+
             <TextView
                 android:id="@+id/calorieTextView"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Calorie"
+                android:text="Calorie ~ 300"
                 android:textAlignment="center"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/category_icon1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:contentDescription="category_lowcarb_icon"/>
+
+                <ImageView
+                    android:id="@+id/category_icon2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:contentDescription="category_lowcarb_icon"/>
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>

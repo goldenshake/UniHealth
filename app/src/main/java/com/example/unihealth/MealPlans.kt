@@ -1,9 +1,9 @@
 package com.example.unihealth
 
-import com.example.unihealth.classes.MealAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihealth.classes.MealAdapter
 import com.example.unihealth.classes.RecipeMealPlans
 
 class MealPlans : AppCompatActivity() {
@@ -30,66 +31,136 @@ class MealPlans : AppCompatActivity() {
             R.drawable.spaguetti,
             listOf("Black Beans, Zucchini, Bell Pepper, Flaxseed, Chili Powder, Smked Parika, Avocado, Lettuce Wrap"),
             400,
-            listOf("Vegetarian, Low Carbs")
+            listOf("Vegetarian", "Low Carbs")
         ),
         RecipeMealPlans(
             "Hemp Seed and Chia Pudding(with Berries)",
             R.drawable.spaguetti,
-            listOf("Hemp Seeds","Chia Seeds", "Almond Milk", "Coconut Milk", "Berries(fresh or frozen)"),
+            listOf(
+                "Hemp Seeds",
+                "Chia Seeds",
+                "Almond Milk",
+                "Coconut Milk",
+                "Berries(fresh or frozen)"
+            ),
             300,
             listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Stir-Fried Tofu with Vegetables",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf(
+                "Firm tofu, cubed",
+                "Broccoli florets",
+                "Sliced bell peppers (red, yellow, and green)",
+                "Sliced carrots",
+                "Minced garlic",
+                "Low-sodium soy sauce",
+                "Sesame oil",
+                "Red pepper flakes (optional)"
+            ),
+            250,
+            listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Cauliflower Rice Stir-Fry",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf(
+                "Cauliflower, grated into rice-like pieces",
+                "Diced tofu",
+                "Diced zucchini",
+                "Diced bell peppers (any color)",
+                "Chopped onions",
+                "Minced ginger",
+                "Low-sodium soy sauce",
+                "Sesame oil",
+                "Chopped green onions (for garnish)"
+            ),
+            280,
+            listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Vegan Lentil Salad",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf(
+                "Cooked green lentils",
+                "Diced cucumber",
+                "Cherry tomatoes, halved",
+                "Chopped red onion",
+                "Chopped fresh parsley",
+                "Lemon juice",
+                "Extra virgin olive oil",
+                "Dijon mustard",
+                "Salt and pepper"
+            ),
+            270,
+            listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Grilled Chicken Salad",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf(
+                "Grilled chicken breast",
+                "Mixed salad greens (lettuce, spinach, arugula)",
+                "Cherry tomatoes",
+                "Cucumber",
+                "Red onion",
+                "Balsamic vinaigrette dressing"
+            ),
+            350,
+            listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Stir-Fried Tofu with Vegetables",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
+            listOf(
+                "Firm tofu, cubed",
+                        "Broccoli florets",
+                        "Bell peppers(red, green, yellow)",
+                        "Snow peas",
+                        "Carrots, julienned",
+                        "Garlic, minced",
+                        "Soy sauce",
+                        "Sesame oil",
+                        "Brown rice(optional, for serving)"
+            ),
             300,
-            listOf("Dairy-Free")
+            listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Turkey and Vegetable Quinoa Bowl",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf("Lean ground turkey",
+                    "Quinoa, cooked",
+                    "Zucchini, diced",
+                    "Yellow squash, diced",
+                    "Red bell pepper, diced",
+                    "Onion, diced",
+                    "Garlic, minced",
+                    "Olive oil",
+                    "Salt and pepper to taste",
+                    "Fresh parsley for garnish"),
+            400,
+            listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Pasta",
+            "Salmon with Roasted Vegetables",
             R.drawable.spaguetti,
-            listOf("Pasta", "Tomato Sauce", "Cheese"),
-            300,
-            listOf("Dairy-Free")
+            listOf("Salmon fillets",
+                    "Asparagus spears",
+                    "Brussels sprouts, halved",
+                    "Cherry tomatoes",
+                    "Red onion, sliced",
+                    "Olive oil",
+                    "Lemon juice",
+                    "Garlic powder",
+                    "Paprika",
+                    "Salt and pepper to taste"),
+            380,
+            listOf("Dairy Free")
         )
 
-        )
+    )
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,6 +185,8 @@ class MealPlans : AppCompatActivity() {
         val lowCarbsCheckbox = findViewById<CheckBox>(R.id.lowCarbsCheckbox)
         val nutFreeCheckbox = findViewById<CheckBox>(R.id.nutFreeCheckbox)
         val veganCheckbox = findViewById<CheckBox>(R.id.veganCheckbox)
+        val emptyFind = findViewById<TextView>(R.id.emptyFind)
+
 
         val checkboxes = listOf(
             vegetarianCheckbox,

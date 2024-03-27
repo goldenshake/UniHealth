@@ -35,6 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:drawableEnd="@drawable/vegetarianshr"
+            android:drawablePadding="10dp"
             android:text="Vegetarian" />
 
 
@@ -43,6 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:drawableEnd="@drawable/dairyfreeshr"
+            android:drawablePadding="10dp"
             android:text="Dairy Free" />
 
 
@@ -59,6 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:drawableEnd="@drawable/lowcarbshr"
+            android:drawablePadding="10dp"
             android:text="Low Carbs" />
 
         <CheckBox
@@ -66,15 +72,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:drawableEnd="@drawable/nutfreeshr"
+            android:drawablePadding="10dp"
             android:text="Nut Free" />
 
-        <CheckBox
-            android:id="@+id/veganCheckbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Vegan" />
+
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/veganCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:drawableEnd="@drawable/veganshr"
+        android:drawablePadding="10dp"
+        android:text="Vegan" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -83,8 +96,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mealRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/emptyFind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
