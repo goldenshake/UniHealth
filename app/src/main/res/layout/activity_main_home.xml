@@ -302,13 +302,13 @@
 
                     <ImageView
                         android:id="@+id/manImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:src="@drawable/man" />
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/girl" />
 
                     <TextView
                         android:id="@+id/testimonial"
-                        style="@style/TextAppearance.MaterialComponents.Headline3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -318,14 +318,14 @@
 
                     <TextView
                         android:id="@+id/body"
-                        style="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:fontFamily="monospace"
                         android:text="Uni Health app has revolutionized my wellness journey! Its user-friendly interface, comprehensive features, and personalized recommendations make staying healthy effortless and enjoyable. Highly recommend!"
                         android:textAlignment="center"
-                        android:textColor="#49454F" />
+                        android:textColor="#49454F"
+                        android:textStyle="italic" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

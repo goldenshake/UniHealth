@@ -14,63 +14,260 @@ import com.example.unihealth.classes.WorkoutAdapter
 
 class WorkoutPlan : AppCompatActivity() {
 
+
     val workoutList = listOf(
+
+//        Weight Loss
+
         BodyWorkoutPlan(
-            "Cardio",
+            "Weight Loss/General Fitness",
             R.drawable.healthcare,
-            listOf("Running", "Jumping Jacks", "Burpees"),
+            listOf("Running"),
             30,
-            listOf("Endurance", "Weight Loss")
+            listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
-            "Strength Training",
+            "Weight Loss/ General Fitness",
             R.drawable.healthcare,
-            listOf("Squats", "Push-ups", "Deadlifts"),
-            45,
-            listOf("Muscle Gain", "Strength")
+            listOf("Cycling"),
+            30,
+            listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
-            "Yoga",
+            "Weight Loss/General Fitness",
             R.drawable.healthcare,
-            listOf("Sun Salutation", "Warrior Pose", "Downward Dog"),
-            60,
-            listOf("Flexibility", "General Fitness")
+            listOf("Jumping Jacks"),
+            30,
+            listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
-            "HIIT",
+            "Weight Loss",
             R.drawable.healthcare,
-            listOf("High Knees", "Mountain Climbers", "Plank Jacks"),
-            40,
-            listOf("Endurance", "Weight Loss")
+            listOf("Burpees"),
+            30,
+            listOf("Weight Loss")
         ),
         BodyWorkoutPlan(
-            "Circuit Training",
+            "Weight Loss/General Fitness",
             R.drawable.healthcare,
-            listOf("Jump Rope", "Box Jumps", "Bench Press"),
-            50,
-            listOf("Muscle Gain", "General Fitness")
+            listOf("Rowing"),
+            30,
+            listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
-            "Pilates",
+            "Weight Loss/General Fitness",
             R.drawable.healthcare,
-            listOf("Hundreds", "Leg Circles", "Criss-Cross"),
-            45,
-            listOf("Flexibility", "Core Strength")
+            listOf("Jump Rope"),
+            30,
+            listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
-            "Swimming",
+            "Weight Loss",
             R.drawable.healthcare,
-            listOf("Freestyle", "Breaststroke", "Butterfly"),
-            45,
-            listOf("Endurance", "General Fitness")
+            listOf("Squat Jumps"),
+            30,
+            listOf("Weight Loss")
         ),
         BodyWorkoutPlan(
-            "Cycling",
+            "Weight Loss/General Fitness",
             R.drawable.healthcare,
-            listOf("Indoor Cycling", "Outdoor Cycling", "Sprints"),
-            60,
-            listOf("Endurance", "Weight Loss")
+            listOf("Hiking"),
+            30,
+            listOf("Weight Loss", "General Fitness")
+        ),
+
+//        Muscle Gain
+
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Deadlifts"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Squats"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Bench Press"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Pull-Ups"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Dumbbell Lunges"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Barbell Rows"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Leg Press"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Shoulder Press"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Bicep Curls"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Tricep Dips"),
+            30,
+            listOf("Muscle Gain")
+        ),
+
+
+//        Endurance
+
+
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Long-Distance Running"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Cycling"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Swimming"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Rowing"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Jump Rope"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Stair Climbing"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Box Jumps"),
+            30,
+            listOf("Endurance")
+        ),
+        BodyWorkoutPlan(
+            "Endurance",
+            R.drawable.healthcare,
+            listOf("Battle Ropes"),
+            30,
+            listOf("Endurance")
+        ),
+
+//        Flexibility
+
+        BodyWorkoutPlan(
+            "Flexibility",
+            R.drawable.healthcare,
+            listOf("Butterfly Stretch"),
+            30,
+            listOf("Flexibility")
+        ),
+        BodyWorkoutPlan(
+            "Flexibility",
+            R.drawable.healthcare,
+            listOf("Hamstring Stretch"),
+            30,
+            listOf("Flexibility")
+        ),
+        BodyWorkoutPlan(
+            "Flexibility",
+            R.drawable.healthcare,
+            listOf("Foam Rolling"),
+            30,
+            listOf("Flexibility")
+        ),
+        BodyWorkoutPlan(
+            "Flexibility",
+            R.drawable.healthcare,
+            listOf("Dynamic Stretching"),
+            30,
+            listOf("Flexibility")
+        ),
+
+
+//        General Fitness
+
+
+        BodyWorkoutPlan(
+            "General Fitness",
+            R.drawable.healthcare,
+            listOf("Plank"),
+            30,
+            listOf("General Fitness")
+        ),
+        BodyWorkoutPlan(
+            "General Fitness",
+            R.drawable.healthcare,
+            listOf("Push Ups"),
+            30,
+            listOf("General Fitness")
+        ),
+        BodyWorkoutPlan(
+            "General Fitness",
+            R.drawable.healthcare,
+            listOf("Sit-Ups"),
+            30,
+            listOf("General Fitness")
         )
+
+
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
