@@ -20,97 +20,6 @@ class MealPlans : AppCompatActivity() {
 
     val mealList = listOf(
         RecipeMealPlans(
-            "Spicy Tofu Scramble",
-            R.drawable.salad,
-            listOf("Saute Crumbled tofu, Chopped Onions, Bell peppers, Chili Powder, Vegetable Broth"),
-            300,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Black Bean Burger with avocado Cream",
-            R.drawable.spaguetti,
-            listOf("Black Beans, Zucchini, Bell Pepper, Flaxseed, Chili Powder, Smked Parika, Avocado, Lettuce Wrap"),
-            400,
-            listOf("Vegetarian", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Hemp Seed and Chia Pudding(with Berries)",
-            R.drawable.spaguetti,
-            listOf(
-                "Hemp Seeds",
-                "Chia Seeds",
-                "Almond Milk",
-                "Coconut Milk",
-                "Berries(fresh or frozen)"
-            ),
-            300,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Stir-Fried Tofu with Vegetables",
-            R.drawable.spaguetti,
-            listOf(
-                "Firm tofu, cubed",
-                "Broccoli florets",
-                "Sliced bell peppers (red, yellow, and green)",
-                "Sliced carrots",
-                "Minced garlic",
-                "Low-sodium soy sauce",
-                "Sesame oil",
-                "Red pepper flakes (optional)"
-            ),
-            250,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Cauliflower Rice Stir-Fry",
-            R.drawable.spaguetti,
-            listOf(
-                "Cauliflower, grated into rice-like pieces",
-                "Diced tofu",
-                "Diced zucchini",
-                "Diced bell peppers (any color)",
-                "Chopped onions",
-                "Minced ginger",
-                "Low-sodium soy sauce",
-                "Sesame oil",
-                "Chopped green onions (for garnish)"
-            ),
-            280,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Vegan Lentil Salad",
-            R.drawable.spaguetti,
-            listOf(
-                "Cooked green lentils",
-                "Diced cucumber",
-                "Cherry tomatoes, halved",
-                "Chopped red onion",
-                "Chopped fresh parsley",
-                "Lemon juice",
-                "Extra virgin olive oil",
-                "Dijon mustard",
-                "Salt and pepper"
-            ),
-            270,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
-            "Grilled Chicken Salad",
-            R.drawable.spaguetti,
-            listOf(
-                "Grilled chicken breast",
-                "Mixed salad greens (lettuce, spinach, arugula)",
-                "Cherry tomatoes",
-                "Cucumber",
-                "Red onion",
-                "Balsamic vinaigrette dressing"
-            ),
-            350,
-            listOf("Dairy Free")
-        ),
-        RecipeMealPlans(
             "Stir-Fried Tofu with Vegetables",
             R.drawable.spaguetti,
             listOf(
@@ -126,6 +35,76 @@ class MealPlans : AppCompatActivity() {
             ),
             300,
             listOf("Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Turkey and Vegetable Quinoa Bowl",
+            R.drawable.spaguetti,
+            listOf(
+                "Lean ground turkey",
+                "Quinoa, cooked",
+                "Zucchini, diced",
+                "Yellow squash, diced",
+                "Red bell pepper, diced",
+                "Onion, diced",
+                "Garlic, minced",
+                "Olive oil",
+                "Salt and pepper to taste",
+                "Fresh parsley for garnish"
+            ),
+            400,
+            listOf("Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Black Bean Burger with avocado Cream",
+            R.drawable.spaguetti,
+            listOf(
+                "Black Beans",
+                "Zucchini",
+                "Bell Pepper",
+                "Flaxseed",
+                "Chili Powder",
+                "Smoked Paprika",
+                "Avocado",
+                "Lettuce Wrap"
+            ),
+            400,
+            listOf("Vegetarian", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Grilled Lemon Herb Chicken with Quinoa Salad",
+            R.drawable.spaguetti,
+            listOf(
+                "Boneless, skinless chicken breasts",
+                "Lemon",
+                "Olive oil",
+                "Garlic, minced",
+                "Oregano",
+                "Dried thyme",
+                "Salt and pepper",
+                "Quinoa",
+                "Cherry tomatoes",
+                "Cucumber",
+                "Red onion",
+                "Fresh parsley",
+                "Olive oil"
+            ),
+            450,
+            listOf("Nut Free")
+        ),
+        RecipeMealPlans(
+            "Spaghetti with Tomato Basil Sauce",
+            R.drawable.spaguetti,
+            listOf(
+                "Spaghetti pasta",
+                "Olive oil",
+                "Garlic",
+                "Crushed tomatoes",
+                "Dried basil",
+                "Salt and pepper",
+                "Fresh basil leaves"
+            ),
+            390,
+            listOf("Nut Free")
         ),
         RecipeMealPlans(
             "Salmon with Roasted Vegetables",
@@ -146,22 +125,240 @@ class MealPlans : AppCompatActivity() {
             listOf("Dairy Free")
         ),
         RecipeMealPlans(
-            "Turkey and Vegetable Quinoa Bowl",
+            "Hemp Seed and Chia Pudding(with Berries)",
             R.drawable.spaguetti,
             listOf(
-                "Lean ground turkey",
-                "Quinoa, cooked",
-                "Zucchini, diced",
-                "Yellow squash, diced",
-                "Red bell pepper, diced",
-                "Onion, diced",
-                "Garlic, minced",
-                "Olive oil",
-                "Salt and pepper to taste",
-                "Fresh parsley for garnish"
+                "Hemp Seeds",
+                "Chia Seeds",
+                "Almond Milk",
+                "Coconut Milk",
+                "Berries(fresh or frozen)"
             ),
-            400,
+            300,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Vegan Lentil Salad",
+            R.drawable.spaguetti,
+            listOf(
+                "Cooked green lentils",
+                "Diced cucumber",
+                "Cherry tomatoes, halved",
+                "Chopped red onion",
+                "Chopped fresh parsley",
+                "Lemon juice",
+                "Extra virgin olive oil",
+                "Dijon mustard",
+                "Salt and pepper"
+            ),
+            270,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Stir-Fried Tofu with Vegetables",
+            R.drawable.spaguetti,
+            listOf(
+                "Firm tofu, cubed",
+                "Broccoli florets",
+                "Sliced bell peppers (red, yellow, and green)",
+                "Sliced carrots",
+                "Minced garlic",
+                "Low-sodium soy sauce",
+                "Sesame oil",
+                "Red pepper flakes (optional)"
+            ),
+            250,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Lentil Vegetable Soup",
+            R.drawable.spaguetti,
+            listOf(
+                "Dried green lentils",
+                "Vegetable broth",
+                "Onion",
+                "Carrots",
+                "Celery",
+                "Garlic",
+                "Dried thyme",
+                "Dried oregano",
+                "Bay leaf",
+                "Salt and pepper",
+                "Spinach",
+                "Olive oil"
+            ),
+            280,
+            listOf("Nut Free")
+        ),
+        RecipeMealPlans(
+            "Spicy Tofu Scramble",
+            R.drawable.salad,
+            listOf(
+                "Saute Crumbled tofu",
+                "Chopped Onions",
+                "Bell peppers",
+                "Chili Powder",
+                "Vegetable Broth"
+            ),
+            300,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Cauliflower Rice Stir-Fry",
+            R.drawable.spaguetti,
+            listOf(
+                "Cauliflower, grated into rice-like pieces",
+                "Diced tofu",
+                "Diced zucchini",
+                "Diced bell peppers (any color)",
+                "Chopped onions",
+                "Minced ginger",
+                "Low-sodium soy sauce",
+                "Sesame oil",
+                "Chopped green onions (for garnish)"
+            ),
+            280,
+            listOf("Vegan", "Low Carbs")
+        ),
+        RecipeMealPlans(
+            "Christmas Salad",
+            R.drawable.spaguetti,
+            listOf(
+                "½ cup extra-virgin olive oil",
+                "1 tablespoon white wine vinegar (see Note)",
+                "1 teaspoon grated clementine zest",
+                "⅓ cup fresh clementine juice (from about 6 clementines)",
+                "2 teaspoons honey",
+                "1 teaspoon Dijon mustard",
+                "2 tablespoons minced shallots",
+                "¾ teaspoon sea salt",
+                "¼ teaspoon freshly cracked black pepper",
+                "5 ounces baby spinach (about 4 cups)",
+                "5 ounces baby arugula (about 3 cups)",
+                "4 ounces crumbled feta or goat cheese",
+                "6 clementines, segmented",
+                "½ cup pomegranate seeds or craisins",
+                "⅓ cup sliced almonds",
+                "¼ cup minced chives (optional)"
+            ),
+            236,
             listOf("Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Grilled Chicken Salad",
+            R.drawable.spaguetti,
+            listOf(
+                "Grilled chicken breast",
+                "Mixed salad greens (lettuce, spinach, arugula)",
+                "Cherry tomatoes",
+                "Cucumber",
+                "Red onion",
+                "Balsamic vinaigrette dressing"
+            ),
+            350,
+            listOf("Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Homemade Fried Rice",
+            R.drawable.spaguetti,
+            listOf(
+                "4 cups cooked white rice, preferably day-old",
+                "3 large eggs, beaten",
+                "¼ teaspoon sea salt, plus more to taste",
+                "2½ teaspoons toasted sesame oil",
+                "⅓ cup coconut aminos",
+                "3 tablespoons vegetable oil",
+                "2 medium carrots, finely diced (about 1 cup)",
+                "1 small yellow onion, finely chopped (about 1 cup)",
+                "3 cloves garlic, minced",
+                "¾ cup frozen peas, thawed",
+                "4 green onions, chopped",
+                "2 tablespoons soy sauce"
+            ),
+            350,
+            listOf("Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Dairy Free Mac and Cheese",
+            R.drawable.spaguetti,
+            listOf(
+                "1½ pounds russet potatoes, peeled and cut into 2-inch pieces",
+                "16 ounces elbow pasta",
+                "2 cups chicken or veggie stock",
+                "2 cups vegan cheese shreds (we like Violife Mozzarella Shreds)",
+                "½ cup nutritional yeast",
+                "1 teaspoon garlic powder",
+                "½ teaspoon onion powder",
+                "1½ teaspoons kosher salt",
+                "¼ teaspoon turmeric",
+                "¼ teaspoon paprika",
+                "1½ teaspoons fresh lemon juice (from 1 lemon)",
+                "½ cup + 2 tablespoons vegan butter, melted",
+                "¾ cup panko bread crumbs"
+            ),
+            506,
+            listOf("Vegetarian", "Dairy Free")
+        ),
+        RecipeMealPlans(
+            "Pesto Spaghetti",
+            R.drawable.spaguetti,
+            listOf(
+
+                "12 ounces spaghetti",
+                "1 cup basil pesto, store-bought or homemade",
+                "2 cups arugula",
+                "Cherry tomatoes, halved, for serving",
+                "Fresh basil leaves, for serving (optional)",
+                "Parmesan cheese, for serving (optional)"
+            ),
+            350,
+            listOf("Vegetarian")
+        ),
+        RecipeMealPlans(
+            "Vegetable Stir Fry",
+            R.drawable.spaguetti,
+            listOf(
+                "1 tablespoon vegetable oil",
+                "1 cup sliced crimini mushrooms",
+                "2 cups broccoli florets",
+                "1 15-ounce can baby corn, drained (optional)",
+                "1 red bell pepper, thinly sliced",
+                "4 ounces snap peas",
+                "1 cup sliced zucchini",
+                "1 cup peeled and thinly sliced carrot rounds",
+                "½ cup low-sodium soy sauce or tamari",
+                "1 tablespoon toasted sesame oil",
+                "4 cloves garlic, minced",
+                "2 teaspoons freshly grated ginger",
+                "¼ cup brown sugar or honey",
+                "Pinch red pepper flakes (optional)",
+                "2 tablespoons cornstarch or arrowroot starch",
+                "¼ cup thinly sliced green onions"
+            ),
+            146,
+            listOf("Vegetarian", "Vegan")
+        ),
+        RecipeMealPlans(
+            "Grated beet Salad",
+            R.drawable.spaguetti,
+            listOf(
+
+
+                "2 tablespoons extra-virgin olive oil",
+                "2 tablespoons sherry vinegar",
+                "1 small shallot, minced",
+                "1 teaspoon Dijon mustard",
+                "1 teaspoon honey",
+                "½ teaspoon grated lemon zest",
+                "½ teaspoon sea salt",
+                "¼ teaspoon freshly cracked black pepper",
+                "1 pound red beets, peeled and grated",
+                "1 large carrot, peeled and grated",
+                "¼ cup chopped fresh flat leaf parsley",
+                "¼ cup chopped fresh mint"
+            ),
+            100,
+            listOf("Vegetarian", "Vegan")
         )
     )
 
