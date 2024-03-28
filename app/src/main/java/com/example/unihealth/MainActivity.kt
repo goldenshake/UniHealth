@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val intent = Intent(this, MainHome::class.java)
             startActivity(intent)
+//            This commented code is the login feature I skipped it until the app is ready finished its working tho :)
 //            val email = editTextInputLayoutEmail.editText?.text.toString().trim()
 //            val password = editTextInputLayoutPassword.editText?.text.toString().trim()
 //            if (email.isEmpty() || password.isEmpty()) {
