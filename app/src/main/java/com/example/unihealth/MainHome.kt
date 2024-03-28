@@ -32,9 +32,9 @@ class MainHome : AppCompatActivity() {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val student_collection_ref: CollectionReference = db.collection("student")
     private val recipes = listOf(
-        Recipe("Recipe 1", R.drawable.ic_launcher_foreground),
-        Recipe("Recipe 2", R.drawable.health_care),
-        Recipe("Recipe 3", R.drawable.healthcare)
+        Recipe("Christmas Salad", R.drawable.christmas_salad),
+        Recipe("Homemade Fried Rice", R.drawable.homemade_fried_rice),
+        Recipe("Pesto Spaghetti", R.drawable.pesto_spaghetti)
         // Add more recipes as needed
     )
 
