@@ -21,7 +21,7 @@ class MealPlans : AppCompatActivity() {
     val mealList = listOf(
         RecipeMealPlans(
             "Stir-Fried Tofu with Vegetables",
-            R.drawable.spaguetti,
+            R.drawable.stir_fried_tofu_with_vegetables,
             listOf(
                 "Firm tofu, cubed",
                 "Broccoli florets",
@@ -38,7 +38,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Turkey and Vegetable Quinoa Bowl",
-            R.drawable.spaguetti,
+            R.drawable.turkey_and_vegetable_quinoa_bowl,
             listOf(
                 "Lean ground turkey",
                 "Quinoa, cooked",
@@ -56,7 +56,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Black Bean Burger with avocado Cream",
-            R.drawable.spaguetti,
+            R.drawable.black_bean_burger_with_avocado_cream,
             listOf(
                 "Black Beans",
                 "Zucchini",
@@ -72,7 +72,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Grilled Lemon Herb Chicken with Quinoa Salad",
-            R.drawable.spaguetti,
+            R.drawable.grilled_lemon_herb_chicken_with_quinoa_salad,
             listOf(
                 "Boneless, skinless chicken breasts",
                 "Lemon",
@@ -93,7 +93,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Spaghetti with Tomato Basil Sauce",
-            R.drawable.spaguetti,
+            R.drawable.spaghetti_with_tomato_basil_sauce,
             listOf(
                 "Spaghetti pasta",
                 "Olive oil",
@@ -108,7 +108,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Salmon with Roasted Vegetables",
-            R.drawable.spaguetti,
+            R.drawable.salmon_with_roasted_vegetables,
             listOf(
                 "Salmon fillets",
                 "Asparagus spears",
@@ -126,7 +126,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Hemp Seed and Chia Pudding(with Berries)",
-            R.drawable.spaguetti,
+            R.drawable.hemp_seed_and_chia_pudding_with_berries_,
             listOf(
                 "Hemp Seeds",
                 "Chia Seeds",
@@ -139,7 +139,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Vegan Lentil Salad",
-            R.drawable.spaguetti,
+            R.drawable.vegan_lentil_salad,
             listOf(
                 "Cooked green lentils",
                 "Diced cucumber",
@@ -155,24 +155,8 @@ class MealPlans : AppCompatActivity() {
             listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Stir-Fried Tofu with Vegetables",
-            R.drawable.spaguetti,
-            listOf(
-                "Firm tofu, cubed",
-                "Broccoli florets",
-                "Sliced bell peppers (red, yellow, and green)",
-                "Sliced carrots",
-                "Minced garlic",
-                "Low-sodium soy sauce",
-                "Sesame oil",
-                "Red pepper flakes (optional)"
-            ),
-            250,
-            listOf("Vegan", "Low Carbs")
-        ),
-        RecipeMealPlans(
             "Lentil Vegetable Soup",
-            R.drawable.spaguetti,
+            R.drawable.lentil_vegetable_soup,
             listOf(
                 "Dried green lentils",
                 "Vegetable broth",
@@ -192,7 +176,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Spicy Tofu Scramble",
-            R.drawable.salad,
+            R.drawable.spicy_tofu_scramble,
             listOf(
                 "Saute Crumbled tofu",
                 "Chopped Onions",
@@ -204,25 +188,32 @@ class MealPlans : AppCompatActivity() {
             listOf("Vegan", "Low Carbs")
         ),
         RecipeMealPlans(
-            "Cauliflower Rice Stir-Fry",
-            R.drawable.spaguetti,
+            "Cauliflower Curry",
+            R.drawable.cauliflower_curry,
             listOf(
-                "Cauliflower, grated into rice-like pieces",
-                "Diced tofu",
-                "Diced zucchini",
-                "Diced bell peppers (any color)",
-                "Chopped onions",
-                "Minced ginger",
-                "Low-sodium soy sauce",
-                "Sesame oil",
-                "Chopped green onions (for garnish)"
+
+                "1 tablespoon extra-virgin olive oil",
+                "1 medium yellow onion, diced",
+                "4 cloves garlic, minced",
+                "1 tablespoon minced fresh ginger",
+                "3 tablespoons yellow curry powder",
+                "2 teaspoons cinnamon",
+                "2 teaspoons cumin",
+                "2 teaspoons sea salt",
+                "⅛ teaspoon cayenne pepper",
+                "1 (14-ounce) can diced tomatoes",
+                "3 (14-ounce) cans coconut milk or unsweetened coconut cream",
+                "1 large head of cauliflower, cut into florets",
+                "Cooked rice, for serving (optional)",
+                "Minced cilantro, for serving (optional)",
+                "Warmed naan, for serving (optional)"
             ),
             280,
-            listOf("Vegan", "Low Carbs")
+            listOf("Vegan", "Vegetarian")
         ),
         RecipeMealPlans(
             "Christmas Salad",
-            R.drawable.spaguetti,
+            R.drawable.christmas_salad,
             listOf(
                 "½ cup extra-virgin olive oil",
                 "1 tablespoon white wine vinegar (see Note)",
@@ -241,12 +232,12 @@ class MealPlans : AppCompatActivity() {
                 "⅓ cup sliced almonds",
                 "¼ cup minced chives (optional)"
             ),
-            236,
+            283,
             listOf("Dairy Free")
         ),
         RecipeMealPlans(
             "Grilled Chicken Salad",
-            R.drawable.spaguetti,
+            R.drawable.grilled_chicken_salad,
             listOf(
                 "Grilled chicken breast",
                 "Mixed salad greens (lettuce, spinach, arugula)",
@@ -260,7 +251,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Homemade Fried Rice",
-            R.drawable.spaguetti,
+            R.drawable.homemade_fried_rice,
             listOf(
                 "4 cups cooked white rice, preferably day-old",
                 "3 large eggs, beaten",
@@ -280,7 +271,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Dairy Free Mac and Cheese",
-            R.drawable.spaguetti,
+            R.drawable.dairy_free_mac_and_cheese,
             listOf(
                 "1½ pounds russet potatoes, peeled and cut into 2-inch pieces",
                 "16 ounces elbow pasta",
@@ -300,23 +291,8 @@ class MealPlans : AppCompatActivity() {
             listOf("Vegetarian", "Dairy Free")
         ),
         RecipeMealPlans(
-            "Pesto Spaghetti",
-            R.drawable.spaguetti,
-            listOf(
-
-                "12 ounces spaghetti",
-                "1 cup basil pesto, store-bought or homemade",
-                "2 cups arugula",
-                "Cherry tomatoes, halved, for serving",
-                "Fresh basil leaves, for serving (optional)",
-                "Parmesan cheese, for serving (optional)"
-            ),
-            350,
-            listOf("Vegetarian")
-        ),
-        RecipeMealPlans(
             "Vegetable Stir Fry",
-            R.drawable.spaguetti,
+            R.drawable.vegetable_stir_fry,
             listOf(
                 "1 tablespoon vegetable oil",
                 "1 cup sliced crimini mushrooms",
@@ -340,7 +316,7 @@ class MealPlans : AppCompatActivity() {
         ),
         RecipeMealPlans(
             "Grated beet Salad",
-            R.drawable.spaguetti,
+            R.drawable.grated_beet_salad,
             listOf(
 
 
@@ -359,6 +335,21 @@ class MealPlans : AppCompatActivity() {
             ),
             100,
             listOf("Vegetarian", "Vegan")
+        ),
+        RecipeMealPlans(
+            "Pesto Spaghetti",
+            R.drawable.pesto_spaghetti,
+            listOf(
+
+                "12 ounces spaghetti",
+                "1 cup basil pesto, store-bought or homemade",
+                "2 cups arugula",
+                "Cherry tomatoes, halved, for serving",
+                "Fresh basil leaves, for serving (optional)",
+                "Parmesan cheese, for serving (optional)"
+            ),
+            350,
+            listOf("Vegetarian")
         )
     )
 
