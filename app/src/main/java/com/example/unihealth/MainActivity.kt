@@ -38,41 +38,41 @@ class MainActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            val intent = Intent(this, MainHome::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, MainHome::class.java)
+//            startActivity(intent)
 //            This commented code is the login feature I skipped it until the app is ready finished its working tho :)
-//            val email = editTextInputLayoutEmail.editText?.text.toString().trim()
-//            val password = editTextInputLayoutPassword.editText?.text.toString().trim()
-//            if (email.isEmpty() || password.isEmpty()) {
-//                Toast.makeText(
-//                    this@MainActivity,
-//                    "Please enter email and password",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else {
-//                userAuth.signInWithEmailAndPassword(email, password)
-//                    .addOnCompleteListener { task ->
-//                        if (task.isSuccessful) {
-//                            Toast.makeText(
-//                                this@MainActivity,
-//                                "Login successful",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                            // Proceed to the next activity or perform any other action
-//                            val intent = Intent(this, MainHome::class.java)
-//                            intent.putExtra(Constants.INTENT_EMAIL, email)
-//                            startActivity(intent)
-//
-//                        } else {
-//                            Toast.makeText(
-//                                this@MainActivity,
-//                                "Login failed: ${task.exception?.message}",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                        }
-//                    }
-//
-//            }
+            val email = editTextInputLayoutEmail.editText?.text.toString().trim()
+            val password = editTextInputLayoutPassword.editText?.text.toString().trim()
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(
+                    this@MainActivity,
+                    "Please enter email and password",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                userAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "Login successful",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            // Proceed to the next activity or perform any other action
+                            val intent = Intent(this, MainHome::class.java)
+                            intent.putExtra(Constants.INTENT_EMAIL, email)
+                            startActivity(intent)
+
+                        } else {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "Login failed: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+            }
         }
     }
 }

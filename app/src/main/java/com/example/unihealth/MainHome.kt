@@ -134,6 +134,11 @@ class MainHome : AppCompatActivity() {
         }
         supportCard.setOnClickListener {
             val intent = Intent(this, support::class.java)
+            intentData.let{
+                val email = intentData?.getString(Constants.INTENT_EMAIL)
+                intent.putExtra(Constants.INTENT_EMAIL, email)
+            }
+            intent.putExtra(Constants.INTENT_NAME, userDynamicName.text.toString())
             startActivity(intent)
         }
         challengesCard.setOnClickListener {

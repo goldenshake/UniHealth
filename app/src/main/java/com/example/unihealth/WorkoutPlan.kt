@@ -81,70 +81,98 @@ class WorkoutPlan : AppCompatActivity() {
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Deadlifts"),
+            listOf("Deadlifts", "Back"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Squats"),
+            listOf("Squats", "Legs"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Bench Press"),
+            listOf("Bench Press", "Chest"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Pull-Ups"),
+            listOf("Pull-Ups", "Back"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Dumbbell Lunges"),
+            listOf("Dumbbell Lunges", "Legs"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Barbell Rows"),
+            listOf("Barbell Rows", "Back"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Leg Press"),
+            listOf("Leg Press", "Legs"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Shoulder Press"),
+            listOf("Shoulder Press", "Shoulders"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Bicep Curls"),
+            listOf("Dumbbell Curl", "Bicep"),
             30,
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.healthcare,
-            listOf("Tricep Dips"),
+            listOf("Tricep Dips", "Tricep"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Leg Extension", "Legs"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Barbell Curls", "Bicep"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Lateral Raise", "Shoulders"),
+            30,
+            listOf("Muscle Gain")
+        ),
+        BodyWorkoutPlan(
+            "Muscle Gain",
+            R.drawable.healthcare,
+            listOf("Lat Pull Downs", "Back"),
             30,
             listOf("Muscle Gain")
         ),

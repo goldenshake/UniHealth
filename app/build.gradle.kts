@@ -39,7 +39,7 @@ android {
 
 dependencies {
 
-
+    implementation ("androidx.core:core-ktx:1.7.0")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.androidx.core.ktx)
