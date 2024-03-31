@@ -5,35 +5,35 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#EBF4F4"
-            android:gravity="center"
             android:orientation="vertical"
             android:padding="15dp">
 
-            <TextView
-                android:id="@+id/addOrReply"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text=""/>
+                android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/forumMessage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Title">
+                <TextView
+                    android:id="@+id/addOrReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reply to "
+                    android:textAlignment="center" />
 
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
+                    android:id="@+id/addOrReplytitle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:text="Reply to "
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/forumDescription"

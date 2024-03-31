@@ -25,7 +25,6 @@ import com.google.firebase.firestore.Query
 class support : AppCompatActivity() {
     private var popupWindow: PopupWindow? = null
     private lateinit var showPopupButton: Button
-
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val forum_collection_ref: CollectionReference = db.collection("forum")
     private lateinit var forumAdapter: ForumAdapter
@@ -37,7 +36,9 @@ class support : AppCompatActivity() {
         setContentView(R.layout.activity_support)
 
         val forumItemsList = mutableListOf<Forum>()
-        forumAdapter = ForumAdapter(forumItemsList, this)
+        email = intent.getStringExtra(Constants.INTENT_EMAIL)
+        name = intent.getStringExtra(Constants.INTENT_NAME)
+        forumAdapter = ForumAdapter(forumItemsList, this, email.toString(), name.toString())
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewMessages)
         recyclerView.adapter = forumAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -85,8 +86,7 @@ class support : AppCompatActivity() {
 //            }
 
 
-        email = intent.getStringExtra(Constants.INTENT_EMAIL)
-        name = intent.getStringExtra(Constants.INTENT_NAME)
+
         showPopupButton = findViewById(R.id.showPopUpButton)
         showPopupButton.setOnClickListener {
             showPopup()
@@ -127,7 +127,9 @@ class support : AppCompatActivity() {
 
 
         saveButton.setOnClickListener {
+
             val forum = Forum(
+                "",
                 name.toString(),
                 email.toString(),
                 messageEditText?.text.toString(),
@@ -136,22 +138,35 @@ class support : AppCompatActivity() {
                 emptyList()
             )
             forum_collection_ref.add(forum)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(
-                            this@support,
-                            "Message Saved",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        popupWindow?.dismiss()
-                    } else {
-                        Toast.makeText(
-                            this@support,
-                            "Failed to Save: ${task.exception?.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                .addOnSuccessListener { documentReference ->
+                    // Retrieve the generated ID
+                    val forumId = documentReference.id
 
+                    // Update the document with the ID
+                    forum_collection_ref.document(documentReference.id)
+                        .update("id", forumId)
+                        .addOnSuccessListener {
+                            Toast.makeText(
+                                this@support,
+                                "Message Saved",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            popupWindow?.dismiss()
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(
+                                this@support,
+                                "Failed to Update ID: ${exception.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(
+                        this@support,
+                        "Failed to Save: ${exception.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
 

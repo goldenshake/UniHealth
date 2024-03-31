@@ -1,16 +1,9 @@
 package com.example.unihealth.classes
 
 import com.google.firebase.Timestamp
-import com.google.firebase.firestore.Exclude
-
-
-data class Reply(
-    val userName: String,
-    val message: String,
-    val timestamp: Any
-)
 
 data class Forum(
+    val id: String,
     val name: String,
     val email: String,
     val title: String,
@@ -18,8 +11,6 @@ data class Forum(
     val timestamp: Any,
     val replies: List<Reply> = emptyList()
 ) {
-    constructor() : this("", "", "", "", Timestamp.now())
+    constructor() : this("", "", "", "", "", Timestamp.now(), emptyList())
 
-    @Exclude
-    var id: String = ""
 }
