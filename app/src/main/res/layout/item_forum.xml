@@ -9,8 +9,9 @@
         android:id="@+id/meal_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:padding="10dp">
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        app:cardBackgroundColor="#F0F8F1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,8 +25,8 @@
                 style="@style/TextAppearance.MaterialComponents.Headline3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#7488E8"
                 android:layout_marginStart="5dp"
+                android:background="#7488E8"
                 android:textColor="#00F80A"
                 android:textSize="12sp" />
 

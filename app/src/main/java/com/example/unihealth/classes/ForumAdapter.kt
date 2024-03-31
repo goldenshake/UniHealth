@@ -80,46 +80,53 @@ class ForumAdapter(
                 val timestampText = formatTimestamp(forumItem.timestamp)
                 timeTextView.text = timestampText
                 youForum.visibility = View.GONE
-                if(forumItem.email == currentUserEmail){
+                if (forumItem.email == currentUserEmail) {
                     youForum.text = "YOU"
                     youForum.visibility = View.VISIBLE
                 }
                 replyContainer.removeAllViews()
 
-                for (reply in forumItem.replies) {
-                    val replyLayout = LinearLayout(context).apply {
-                        layoutParams = ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
-                        orientation = LinearLayout.VERTICAL
-                    }
+                if (forumItem.replies.isEmpty()) {
+                    replyContainer.visibility = View.GONE
+                } else {
+                    replyContainer.visibility = View.VISIBLE
+                    for (reply in forumItem.replies) {
+                        val replyLayout = LinearLayout(context).apply {
+                            layoutParams = ViewGroup.LayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            )
+                            orientation = LinearLayout.VERTICAL
+                        }
 
-                    // TextView for name, email, and time
-                    val nameEmailTimeTextView = TextView(context).apply {
-                        layoutParams = ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
-                        text = "${reply.name} ~ ${hideEmail(reply.email)}\t\t\t\t${formatReplyTimestamp(reply.timestamp)}"
-                        textSize = 12.0F
-                        setTypeface(null, Typeface.BOLD_ITALIC)
-                        setPadding(paddingLeft, paddingTop, paddingRight, 10)
-                    }
-                    replyLayout.addView(nameEmailTimeTextView)
+                        // TextView for name, email, and time
+                        val nameEmailTimeTextView = TextView(context).apply {
+                            layoutParams = ViewGroup.LayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            )
+                            text = "${reply.name} ~ ${hideEmail(reply.email)}\t\t\t\t${
+                                formatReplyTimestamp(reply.timestamp)
+                            }"
+                            textSize = 12.0F
+                            setTypeface(null, Typeface.BOLD_ITALIC)
+                            setPadding(paddingLeft, paddingTop, paddingRight, 10)
+                        }
+                        replyLayout.addView(nameEmailTimeTextView)
 
-                    // TextView for description
-                    val replierDescriptionTextView = TextView(context).apply {
-                        layoutParams = ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
-                        text = reply.message
-                        setPadding(15, 30, paddingRight, 80)
-                    }
-                    replyLayout.addView(replierDescriptionTextView)
+                        // TextView for description
+                        val replierDescriptionTextView = TextView(context).apply {
+                            layoutParams = ViewGroup.LayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            )
+                            text = reply.message
+                            setPadding(15, 30, paddingRight, 80)
+                        }
+                        replyLayout.addView(replierDescriptionTextView)
 
-                    replyContainer.addView(replyLayout)
+                        replyContainer.addView(replyLayout)
+                    }
                 }
 
 
@@ -185,7 +192,8 @@ class ForumAdapter(
             return when (timestamp) {
                 is Timestamp -> {
                     val date = timestamp.toDate()
-                    val dateFormat = SimpleDateFormat("MMMM dd, yyyy '@' HH:mm", Locale.getDefault())
+                    val dateFormat =
+                        SimpleDateFormat("MMMM dd, yyyy '@' HH:mm", Locale.getDefault())
                     dateFormat.format(date)
                 }
 
@@ -197,7 +205,8 @@ class ForumAdapter(
             return when (timestamp) {
                 is Timestamp -> {
                     val date = timestamp.toDate()
-                    val dateFormat = SimpleDateFormat("MMMM dd, yyyy '@' HH:mm", Locale.getDefault())
+                    val dateFormat =
+                        SimpleDateFormat("MMMM dd, yyyy '@' HH:mm", Locale.getDefault())
                     dateFormat.format(date)
                 }
 

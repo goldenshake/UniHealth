@@ -230,7 +230,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:fontFamily="casual"
-                    android:text="Jerome"
                     android:textSize="30sp" />
 
             </LinearLayout>
