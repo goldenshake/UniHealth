@@ -1,101 +1,98 @@
 package com.example.unihealth
 
-import android.Manifest
+
+
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Color
+import android.content.Intent
 import android.os.Build
-import android.os.Bundle
-import android.os.CountDownTimer
-import android.widget.Button
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 
-class waterIntake : AppCompatActivity() {
-    private lateinit var timer: CountDownTimer
-    private lateinit var countdownTextView: TextView
-    private lateinit var startButton: Button
+class MainActivity : AppCompatActivity() {
 
-    private val CHANNEL_ID = "WaterReminderChannel"
-    private val notificationId = 101
+    private lateinit var alarmManager: AlarmManager
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var enterMinutes: EditText
+    private lateinit var buttonAlarm: Button
+    private val channelId= "ReminderChannel"
+    private var notificationId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_water_intake)
+        setContentView(R.layout.activity_main)
 
+        // Initialize views
+        enterMinutes = findViewById(R.id.remindPT)
+        buttonAlarm = findViewById(R.id.remindBT)
 
-        countdownTextView = findViewById(R.id.countdownTextView)
-        startButton = findViewById(R.id.startButton)
-
-        startButton.setOnClickListener {
-            startTimer()
-        }
-
+        // Initialize notification manager
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         createNotificationChannel()
-    }
 
-    private fun startTimer() {
-        timer = object : CountDownTimer(10000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val seconds = millisUntilFinished / 1000
-                countdownTextView.text = "Seconds remaining: $seconds"
-            }
+        // Initialize alarm manager
+        alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-            override fun onFinish() {
-                countdownTextView.text = "Time's up! Drink water."
-                sendNotification(this@waterIntake,"Time's up! Drink water.")
-            }
+        // Set button click listener
+        buttonAlarm.setOnClickListener {
+            setRepeatingAlarm()
         }
-        timer.start()
     }
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Water Reminder Channel"
-            val descriptionText = "Channel for water reminder notifications"
+            val name = "Reminder Channel"
+            val descriptionText = "Channel for reminder notifications"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+            val channel = NotificationChannel(channelId, name, importance).apply {
                 description = descriptionText
-                enableLights(true)
-                lightColor = Color.BLUE
             }
 
-            val notificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
     }
 
-    private fun sendNotification(context: Context, message: String) {
-        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.health_care)
-            .setContentTitle("Water Reminder")
-            .setContentText(message)
+    private fun setRepeatingAlarm() {
+        val intervalMinutes = enterMinutes.text.toString().toLongOrNull() ?: return
+        val alarmIntervalMillis = intervalMinutes * 60 * 1000 // Convert minutes to milliseconds
+
+        val alarmIntent = Intent(this, AlarmReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent,
+            PendingIntent.FLAG_IMMUTABLE)
+
+        // Set repeating alarm to trigger every x minutes
+        alarmManager.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            System.currentTimeMillis(),
+            alarmIntervalMillis,
+            pendingIntent
+        )
+
+        // Show notification after setting the alarm
+        showNotification("Repeating Alarm Set", "Alarm will trigger every $intervalMinutes minutes")
+    }
+
+    fun showNotification(title: String, content: String) {
+        val notificationBuilder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.alarm_notification)
+            .setContentTitle(title)
+            .setContentText(content)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        with(NotificationManagerCompat.from(this)) {
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return
-            }
-            notify(notificationId, builder.build())
-        }
+        notificationManager.notify(notificationId++, notificationBuilder.build())
+    }
+}
+
+class AlarmReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        // Display notification when the alarm triggers
+        (context as MainActivity).showNotification("Fitness App ", "It's time to drink some water!")
     }
 }
