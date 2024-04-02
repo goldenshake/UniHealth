@@ -16,7 +16,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.core.app.NotificationCompat
 
-class MainActivity : AppCompatActivity() {
+class waterIntake : AppCompatActivity() {
 
     private lateinit var alarmManager: AlarmManager
     private lateinit var notificationManager: NotificationManager
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_water_intake)
 
         // Initialize views
         enterMinutes = findViewById(R.id.remindPT)
@@ -93,6 +93,6 @@ class MainActivity : AppCompatActivity() {
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // Display notification when the alarm triggers
-        (context as MainActivity).showNotification("Fitness App ", "It's time to drink some water!")
+        (context as waterIntake).showNotification("Fitness App ", "It's time to drink some water!")
     }
 }
