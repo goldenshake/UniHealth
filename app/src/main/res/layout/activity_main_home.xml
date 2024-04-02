@@ -16,7 +16,7 @@
             android:id="@+id/mainHomeAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#388E3C"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="UniHealth+"
@@ -266,12 +266,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
+                        android:backgroundTint="#388E3C"
                         android:text="Previous" />
 
                     <Button
                         android:id="@+id/nextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="#388E3C"
                         android:text="Next" />
                 </LinearLayout>
 

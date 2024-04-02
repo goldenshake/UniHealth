@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihealth.R
 import com.example.unihealth.classes.Forum
@@ -26,7 +27,8 @@ class ForumAdapter(
     private val forumItems: List<Forum>,
     private val context: Context,
     private val currentUserEmail: String,
-    private val currentUserName: String
+    private val currentUserName: String,
+    private val activity: AppCompatActivity
 ) :
     RecyclerView.Adapter<ForumAdapter.ForumViewHolder>() {
 
@@ -138,11 +140,15 @@ class ForumAdapter(
 
 
         private fun showPopup(anchorView: View) {
-            val inflater =
+
+            if (!activity.isFinishing && !activity.isDestroyed) {}
+
+                val inflater =
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val popupView = inflater.inflate(R.layout.replypopup, null)
             val saveButton = popupView.findViewById<Button>(R.id.btnAddMessagePopUp)
             val addOrReplytitle = popupView.findViewById<TextView>(R.id.addOrReplytitle)
+            val emptyReplyDescError = popupView.findViewById<TextView>(R.id.emptyReplyDescError)
             val editTextInputLayoutDescription =
                 popupView.findViewById<TextInputLayout>(R.id.forumDescription)
 
@@ -161,27 +167,33 @@ class ForumAdapter(
             saveButton.setOnClickListener {
                 // Handle saving data or any other action
                 val replyDescription = editTextInputLayoutDescription?.editText?.text.toString()
+                emptyReplyDescError.visibility = View.GONE
+                if (replyDescription.isEmpty()) {
+                    emptyReplyDescError.visibility = View.VISIBLE
+                    emptyReplyDescError.text = "Please Enter Description"
+                } else {
+                    val replyData = Reply(
+                        currentUserName,
+                        currentUserEmail,
+                        replyDescription,
+                        Timestamp.now()
+                    )
+                    val parentMessageRef = forum_collection_ref.document(forumId)
 
-                val replyData = Reply(
-                    currentUserName,
-                    currentUserEmail,
-                    replyDescription,
-                    Timestamp.now()
-                )
-                val parentMessageRef = forum_collection_ref.document(forumId)
+                    parentMessageRef.collection("replies")
+                        .add(replyData)
+                        .addOnSuccessListener { documentReference ->
+                            parentMessageRef.update("replies", FieldValue.arrayUnion(replyData))
+                            popupWindow.dismiss()
+                            Toast.makeText(context, "Reply saved", Toast.LENGTH_SHORT).show()
 
-                parentMessageRef.collection("replies")
-                    .add(replyData)
-                    .addOnSuccessListener { documentReference ->
-                        parentMessageRef.update("replies", FieldValue.arrayUnion(replyData))
-                        popupWindow.dismiss()
-                        Toast.makeText(context, "Reply saved", Toast.LENGTH_SHORT).show()
-
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.e("ForumAdapter", "Failed to save reply", exception)
-                        Toast.makeText(context, "Failed to save reply", Toast.LENGTH_SHORT).show()
-                    }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.e("ForumAdapter", "Failed to save reply", exception)
+                            Toast.makeText(context, "Failed to save reply", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                }
             }
 
             popupWindow.showAsDropDown(anchorView)

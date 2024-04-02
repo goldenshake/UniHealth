@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:backgroundTint="#0504aa"
+        android:backgroundTint="#388E3C"
         android:text="Remind me"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"

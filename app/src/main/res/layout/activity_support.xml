@@ -16,7 +16,7 @@
             android:id="@+id/mainHomeAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="#388E3C"
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="Forums"
             app:titleTextColor="@android:color/white" />
@@ -29,12 +29,13 @@
         android:id="@+id/showPopUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#388E3C"
         android:text="Add Message" />
 
 
-<!--     RecyclerView to display list of messages -->
+    <!--     RecyclerView to display list of messages -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"

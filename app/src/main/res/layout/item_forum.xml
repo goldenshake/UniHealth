@@ -90,6 +90,7 @@
                     android:id="@+id/replyButton"
                     android:layout_width="60dp"
                     android:layout_height="34dp"
+                    android:backgroundTint="#388E3C"
                     android:text="+"
                     android:textSize="10sp" />
 

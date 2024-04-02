@@ -32,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Reply to "
+                    android:textColor="#388E3C"
                     android:textStyle="bold|italic" />
             </LinearLayout>
 
@@ -51,11 +52,19 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/emptyReplyDescError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="#FF0000" />
+
             <Button
                 android:id="@+id/btnAddMessagePopUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:backgroundTint="#388E3C"
                 android:text="Save" />
         </LinearLayout>
 

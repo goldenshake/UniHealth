@@ -4,6 +4,7 @@ import ForumAdapter
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.PopupWindow
@@ -38,7 +39,7 @@ class support : AppCompatActivity() {
         val forumItemsList = mutableListOf<Forum>()
         email = intent.getStringExtra(Constants.INTENT_EMAIL)
         name = intent.getStringExtra(Constants.INTENT_NAME)
-        forumAdapter = ForumAdapter(forumItemsList, this, email.toString(), name.toString())
+        forumAdapter = ForumAdapter(forumItemsList, this, email.toString(), name.toString(), this)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewMessages)
         recyclerView.adapter = forumAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -64,28 +65,6 @@ class support : AppCompatActivity() {
                 // Notify adapter of data change
                 forumAdapter.notifyDataSetChanged()
             }
-//        forum_collection_ref.get()
-//            .addOnSuccessListener { documents ->
-//                for (document in documents) {
-//                    val forumItem = document.toObject(Forum::class.java)
-//                    forumItemsList.add(forumItem)
-//                }
-//                forumAdapter.notifyDataSetChanged()
-//                Toast.makeText(
-//                    this@support,
-//                    "Messages fetched",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            .addOnFailureListener { exception ->
-//                Toast.makeText(
-//                    this@support,
-//                    "Error getting messages: {$exception}",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-
-
 
         showPopupButton = findViewById(R.id.showPopUpButton)
         showPopupButton.setOnClickListener {
@@ -99,6 +78,8 @@ class support : AppCompatActivity() {
         val popupView = inflater.inflate(R.layout.popup, null)
         val saveButton = popupView.findViewById<Button>(R.id.btnAddMessagePopUp)
         val addOrReply = popupView.findViewById<TextView>(R.id.addOrReply)
+        val emptyAddDescError = popupView.findViewById<TextView>(R.id.emptyAddDescError)
+        val emptyAddTitleError = popupView.findViewById<TextView>(R.id.emptyAddTitleError)
         val editTextInputLayoutMessage = popupView.findViewById<TextInputLayout>(R.id.forumMessage)
         val editTextInputLayoutDescription =
             popupView.findViewById<TextInputLayout>(R.id.forumDescription)
@@ -125,49 +106,65 @@ class support : AppCompatActivity() {
         }
         popupWindow?.showAsDropDown(showPopupButton, 0, 0)
 
-
+        emptyAddTitleError.visibility = View.GONE
+        emptyAddDescError.visibility = View.GONE
         saveButton.setOnClickListener {
+            if(messageEditText?.text.toString().isEmpty() && descriptionEditText?.text.toString().isEmpty()){
+                emptyAddTitleError.visibility = View.VISIBLE
+                emptyAddTitleError.text = "Please Enter Title"
+                emptyAddDescError.visibility = View.VISIBLE
+                emptyAddDescError.text = "Please Enter Description"
+            }else if(descriptionEditText?.text.toString().isEmpty()){
+                emptyAddTitleError.visibility = View.GONE
+                emptyAddDescError.visibility = View.VISIBLE
+                emptyAddDescError.text = "Please Enter Description"
+            }else if(messageEditText?.text.toString().isEmpty()){
+                emptyAddDescError.visibility = View.GONE
+                emptyAddTitleError.visibility = View.VISIBLE
+                emptyAddTitleError.text = "Please Enter Description"
+            }
+            else{
+                val forum = Forum(
+                    "",
+                    name.toString(),
+                    email.toString(),
+                    messageEditText?.text.toString(),
+                    descriptionEditText?.text.toString(),
+                    FieldValue.serverTimestamp(),
+                    emptyList()
+                )
+                forum_collection_ref.add(forum)
+                    .addOnSuccessListener { documentReference ->
+                        // Retrieve the generated ID
+                        val forumId = documentReference.id
 
-            val forum = Forum(
-                "",
-                name.toString(),
-                email.toString(),
-                messageEditText?.text.toString(),
-                descriptionEditText?.text.toString(),
-                FieldValue.serverTimestamp(),
-                emptyList()
-            )
-            forum_collection_ref.add(forum)
-                .addOnSuccessListener { documentReference ->
-                    // Retrieve the generated ID
-                    val forumId = documentReference.id
-
-                    // Update the document with the ID
-                    forum_collection_ref.document(documentReference.id)
-                        .update("id", forumId)
-                        .addOnSuccessListener {
-                            Toast.makeText(
-                                this@support,
-                                "Message Saved",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            popupWindow?.dismiss()
-                        }
-                        .addOnFailureListener { exception ->
-                            Toast.makeText(
-                                this@support,
-                                "Failed to Update ID: ${exception.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(
-                        this@support,
-                        "Failed to Save: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                        // Update the document with the ID
+                        forum_collection_ref.document(documentReference.id)
+                            .update("id", forumId)
+                            .addOnSuccessListener {
+                                Toast.makeText(
+                                    this@support,
+                                    "Message Saved",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                popupWindow?.dismiss()
+                            }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(
+                                    this@support,
+                                    "Failed to Update ID: ${exception.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(
+                            this@support,
+                            "Failed to Save: ${exception.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+            }
         }
 
 
