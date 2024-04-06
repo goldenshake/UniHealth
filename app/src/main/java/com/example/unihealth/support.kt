@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihealth.classes.Constants
 import com.example.unihealth.classes.Forum
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FieldValue
@@ -25,7 +26,7 @@ import com.google.firebase.firestore.Query
 
 class support : AppCompatActivity() {
     private var popupWindow: PopupWindow? = null
-    private lateinit var showPopupButton: Button
+    private lateinit var showPopupButton: FloatingActionButton
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val forum_collection_ref: CollectionReference = db.collection("forum")
     private lateinit var forumAdapter: ForumAdapter
@@ -87,7 +88,7 @@ class support : AppCompatActivity() {
         val height = LinearLayout.LayoutParams.WRAP_CONTENT
         popupWindow = PopupWindow(popupView, width, height, true)
 
-        addOrReply.text = "Add Message"
+        addOrReply.text = "Add Post"
         popupWindow?.showAtLocation(
             popupView,
             Gravity.CENTER_HORIZONTAL,
@@ -131,7 +132,8 @@ class support : AppCompatActivity() {
                     messageEditText?.text.toString(),
                     descriptionEditText?.text.toString(),
                     FieldValue.serverTimestamp(),
-                    emptyList()
+                    emptyList(),
+                    false
                 )
                 forum_collection_ref.add(forum)
                     .addOnSuccessListener { documentReference ->

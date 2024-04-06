@@ -43,7 +43,7 @@ class WorkoutViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        nameTextView.text = workout.name
         ingredientsTextView.textSize = 20f
         ingredientsTextView.text = "${workout.exercises[0]}"
-        calorieTextView.text = "Duration: ${workout.durationInMinutes} mins"
+//        calorieTextView.text = "Duration: ${workout.durationInMinutes} mins"
 
 
         if (workout.tags[0] == "Muscle Gain") {

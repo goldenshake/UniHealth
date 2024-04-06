@@ -143,6 +143,10 @@ class MainHome : AppCompatActivity() {
         }
         challengesCard.setOnClickListener {
             val intent = Intent(this, challenges::class.java)
+            intentData.let{
+                val email = intentData?.getString(Constants.INTENT_EMAIL)
+                intent.putExtra(Constants.INTENT_EMAIL, email)
+            }
             startActivity(intent)
         }
         waterCard.setOnClickListener {

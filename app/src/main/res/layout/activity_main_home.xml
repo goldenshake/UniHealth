@@ -128,7 +128,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Support"
+                            android:text="Forums"
                             android:textAlignment="center"
                             android:textSize="20sp" />
 
@@ -148,7 +148,6 @@
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-
                     android:layout_marginEnd="20dp">
 
                     <LinearLayout

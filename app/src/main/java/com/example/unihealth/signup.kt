@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.unihealth.classes.ChallengesDB
 import com.example.unihealth.classes.Student
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,8 @@ class signup : AppCompatActivity() {
     private lateinit var userAuth: FirebaseAuth
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val student_collection_ref: CollectionReference = db.collection("student")
+    private val student_challenge_collection_ref: CollectionReference = db.collection("challenge")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

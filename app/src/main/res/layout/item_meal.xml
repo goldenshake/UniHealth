@@ -53,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Calorie ~ 300"
                 android:textAlignment="center"
                 android:textSize="14sp" />
 

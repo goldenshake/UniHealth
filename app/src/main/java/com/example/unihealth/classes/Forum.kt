@@ -9,8 +9,9 @@ data class Forum(
     val title: String,
     val description: String,
     val timestamp: Any,
-    val replies: List<Reply> = emptyList()
+    val replies: List<Reply> = emptyList(),
+    val edited: Boolean
 ) {
-    constructor() : this("", "", "", "", "", Timestamp.now(), emptyList())
+    constructor() : this("", "", "", "", "", Timestamp.now(), emptyList(), false)
 
 }

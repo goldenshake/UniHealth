@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".support">
 
@@ -17,31 +18,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#388E3C"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:title="Forums"
             app:titleTextColor="@android:color/white" />
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <!-- Button to add new message -->
-    <Button
-        android:id="@+id/showPopUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#388E3C"
-        android:text="Add Message" />
+<!--    <Button-->
+<!--        android:id="@+id/showPopUpButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:backgroundTint="#388E3C"-->
+<!--        android:text="Add Post" />-->
+
+
 
 
     <!--     RecyclerView to display list of messages -->
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp" />
+        android:paddingBottom="30dp"
+        app:layout_anchor="@+id/recyclerViewMessages"
+        app:layout_anchorGravity="center"
+
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/showPopUpButton"
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/plus__1_"
+        app:backgroundTint="#FFFFFF"
+        app:elevation="6dp"
+        app:tint="#388E3C" />
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
