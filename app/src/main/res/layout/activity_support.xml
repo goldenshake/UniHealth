@@ -13,15 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/mainHomeAppBar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#388E3C"
-            app:title="Forums"
-            app:titleTextColor="@android:color/white" />
-
-
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/top_app_bar"
+            app:navigationIcon="@drawable/back_svgrepo_com_24" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

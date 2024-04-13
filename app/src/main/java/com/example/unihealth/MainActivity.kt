@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
+//            val email = editTextInputLayoutEmail.editText?.text.toString().trim()
 //            val intent = Intent(this, MainHome::class.java)
+//            intent.putExtra(Constants.INTENT_EMAIL, "2015jeromebrown@gmail.com")
 //            startActivity(intent)
 //            This commented code is the login feature I skipped it until the app is ready finished its working tho :)
             val email = editTextInputLayoutEmail.editText?.text.toString().trim()

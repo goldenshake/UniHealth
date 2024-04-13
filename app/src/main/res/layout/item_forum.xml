@@ -5,13 +5,14 @@
     android:layout_height="wrap_content">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/meal_card"
+        style="?attr/materialCardViewElevatedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="10dp"
-        app:cardBackgroundColor="#F0F8F1">
+        app:cardBackgroundColor="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,18 +39,22 @@
                     android:textSize="12sp"
                     android:textStyle="normal|bold" />
 
-                <ImageView
-                    android:id="@+id/editbuttonForum"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="15dp"
-                    app:srcCompat="@drawable/edit" />
 
-                <ImageView
+                <Button
+                    android:id="@+id/editbuttonForum"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/pencil_svgrepo_com_24"
+                    app:iconTint="@color/black" />
+
+                <Button
                     android:id="@+id/deletebuttonForum"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    app:srcCompat="@drawable/trash" />
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/bin_svgrepo_com_24"
+                    app:iconTint="@color/black" />
 
             </LinearLayout>
 
@@ -99,7 +104,8 @@
                     android:layout_height="wrap_content"
                     android:text="Title"
                     android:textSize="15sp"
-                    android:textStyle="normal|italic"/>
+                    android:textStyle="normal|italic" />
+
                 <TextView
                     android:id="@+id/editedText"
                     style="@style/TextAppearance.MaterialComponents.Body1"
@@ -118,26 +124,11 @@
                 android:textSize="12sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/replyButton"
-                    android:layout_width="60dp"
-                    android:layout_height="34dp"
-                    android:backgroundTint="#388E3C"
-                    android:text="+"
-                    android:textSize="10sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/replyContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/new_project"
 
                 android:hapticFeedbackEnabled="false"
@@ -159,7 +150,23 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/replyButton"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/plus_1512_svgrepo_com_24"
+                    app:iconTint="@color/black" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.appcompat.widget.LinearLayoutCompat>

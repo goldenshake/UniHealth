@@ -1,5 +1,6 @@
 package com.example.unihealth
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.CheckBox
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihealth.classes.BodyWorkoutPlan
 import com.example.unihealth.classes.WorkoutAdapter
+import com.google.android.material.appbar.MaterialToolbar
 
 class WorkoutPlan : AppCompatActivity() {
 
@@ -24,34 +26,43 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.running,
             listOf("Running"),
             30,
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
             "Weight Loss/ General Fitness",
             R.drawable.cycling,
             listOf("Cycling"),
-            30,
+            60,
+
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
             "Weight Loss/General Fitness",
             R.drawable.jumping_jack,
             listOf("Jumping Jacks"),
-            30,
+            15,
+
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
             "Weight Loss",
             R.drawable.burpees,
             listOf("Burpees"),
-            30,
+            10,
+
+            "0",
             listOf("Weight Loss")
         ),
         BodyWorkoutPlan(
             "Weight Loss/General Fitness",
             R.drawable.rowing,
             listOf("Rowing"),
-            30,
+            60,
+
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
@@ -59,6 +70,8 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.jump_rope,
             listOf("Jump Rope"),
             30,
+
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
         BodyWorkoutPlan(
@@ -66,13 +79,17 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.jump_squats,
             listOf("Squat Jumps"),
             30,
+
+            "0",
             listOf("Weight Loss")
         ),
         BodyWorkoutPlan(
             "Weight Loss/General Fitness",
             R.drawable.hiking,
             listOf("Hiking"),
-            30,
+            50,
+
+            "0",
             listOf("Weight Loss", "General Fitness")
         ),
 
@@ -82,98 +99,124 @@ class WorkoutPlan : AppCompatActivity() {
             "Muscle Gain",
             R.drawable.deadlift,
             listOf("Deadlifts", "Back"),
-            30,
+            0,
+
+            "4 sets x 8 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.squats,
             listOf("Squats", "Legs"),
-            30,
+            0,
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.bench_press,
             listOf("Bench Press", "Chest"),
-            30,
+            0,
+            "4 sets x 10 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.pull_up,
             listOf("Pull-Ups", "Back"),
-            30,
+            0,
+
+            "4 sets x 10 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
-            R.drawable. dumbbell_lunges,
+            R.drawable.dumbbell_lunges,
             listOf("Dumbbell Lunges", "Legs"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.barbell_rows,
             listOf("Barbell Rows", "Back"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.leg_press,
             listOf("Leg Press", "Legs"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.shoulder_press,
             listOf("Shoulder Press", "Shoulders"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.dumbbell_curl,
             listOf("Dumbbell Curl", "Bicep"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
-            R.drawable. tricep_dips,
+            R.drawable.tricep_dips,
             listOf("Tricep Dips", "Tricep"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.leg_extension,
             listOf("Leg Extension", "Legs"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.barbell_curls,
             listOf("Barbell Curls", "Bicep"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.lateral_raise,
             listOf("Lateral Raise", "Shoulders"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
         BodyWorkoutPlan(
             "Muscle Gain",
             R.drawable.lat_pulldown,
             listOf("Lat Pull Downs", "Back"),
-            30,
+            0,
+
+            "4 sets x 12 reps",
             listOf("Muscle Gain")
         ),
 
@@ -185,21 +228,24 @@ class WorkoutPlan : AppCompatActivity() {
             "Endurance",
             R.drawable.endurance,
             listOf("Long-Distance Running"),
-            30,
+            120,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
             "Endurance",
             R.drawable.cycling2,
             listOf("Cycling"),
-            30,
+            60,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
             "Endurance",
             R.drawable.swimming,
             listOf("Swimming"),
-            30,
+            60,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
@@ -207,13 +253,15 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.rowing2,
             listOf("Rowing"),
             30,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
             "Endurance",
-            R.drawable. jump_rope2,
+            R.drawable.jump_rope2,
             listOf("Jump Rope"),
-            30,
+            25,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
@@ -221,20 +269,23 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.stair_climbing,
             listOf("Stair Climbing"),
             30,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
             "Endurance",
             R.drawable.boxjump,
             listOf("Box Jumps"),
-            30,
+            23,
+            "0",
             listOf("Endurance")
         ),
         BodyWorkoutPlan(
             "Endurance",
             R.drawable.battle_ropes,
             listOf("Battle Ropes"),
-            30,
+            15,
+            "0",
             listOf("Endurance")
         ),
 
@@ -245,27 +296,31 @@ class WorkoutPlan : AppCompatActivity() {
             R.drawable.butterfly_stretch,
             listOf("Butterfly Stretch"),
             30,
+            "0",
             listOf("Flexibility")
         ),
         BodyWorkoutPlan(
             "Flexibility",
             R.drawable.hamstring_stretch,
             listOf("Hamstring Stretch"),
-            30,
+            15,
+            "0",
             listOf("Flexibility")
         ),
         BodyWorkoutPlan(
             "Flexibility",
             R.drawable.foam_rolling,
             listOf("Foam Rolling"),
-            30,
+            15,
+            "0",
             listOf("Flexibility")
         ),
         BodyWorkoutPlan(
             "Flexibility",
             R.drawable.stretching,
             listOf("Dynamic Stretching"),
-            30,
+            15,
+            "0",
             listOf("Flexibility")
         ),
 
@@ -277,21 +332,24 @@ class WorkoutPlan : AppCompatActivity() {
             "General Fitness",
             R.drawable.plank,
             listOf("Plank"),
-            30,
+            10,
+            "0",
             listOf("General Fitness")
         ),
         BodyWorkoutPlan(
             "General Fitness",
             R.drawable.pushup,
             listOf("Push Ups"),
-            30,
+            0,
+            "4 sets x 8 reps",
             listOf("General Fitness")
         ),
         BodyWorkoutPlan(
             "General Fitness",
             R.drawable.situp,
             listOf("Sit-Ups"),
-            30,
+            0,
+            "6 sets 8 reps",
             listOf("General Fitness")
         )
 
@@ -310,10 +368,18 @@ class WorkoutPlan : AppCompatActivity() {
 
 
         val recyclerView = findViewById<RecyclerView>(R.id.workoutRecyclerView)
-        val workoutAdapter = WorkoutAdapter(workoutList.toMutableList())
+        val workoutAdapter = WorkoutAdapter(workoutList.toMutableList(), supportFragmentManager)
         recyclerView.adapter = workoutAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
+        val topAppBar: MaterialToolbar = findViewById(R.id.topAppBar)
+        val menu = topAppBar.menu
+        val nameItem = menu.findItem(R.id.name)
+
+        topAppBar.setNavigationOnClickListener {
+            // Handle navigation icon press
+            finish()
+        }
 
         val weightLossCheckbox = findViewById<CheckBox>(R.id.weightLossCheckbox)
         val muscleGainCheckbox = findViewById<CheckBox>(R.id.muscleGainCheckbox)

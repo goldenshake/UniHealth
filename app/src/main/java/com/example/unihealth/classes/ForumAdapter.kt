@@ -57,8 +57,8 @@ class ForumAdapter(
         private val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionForum)
         private val timeTextView: TextView = itemView.findViewById(R.id.timeForum)
         private val replyButton: Button = itemView.findViewById(R.id.replyButton)
-        private val deletebuttonForum: ImageView = itemView.findViewById(R.id.deletebuttonForum)
-        private val editbuttonForum: ImageView = itemView.findViewById(R.id.editbuttonForum)
+        private val deletebuttonForum: Button = itemView.findViewById(R.id.deletebuttonForum)
+        private val editbuttonForum: Button = itemView.findViewById(R.id.editbuttonForum)
         private val replierTime: TextView = itemView.findViewById(R.id.textView5)
         private val replierDescription: TextView = itemView.findViewById(R.id.textView6)
         private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -68,16 +68,15 @@ class ForumAdapter(
         private var popupWindow: PopupWindow? = null
         fun hideEmail(email: String): String {
             val atIndex = email.indexOf('@')
-            val hiddenLength = atIndex - 1 // Length of characters to hide excluding '@'
-            val hiddenPart = "*".repeat(hiddenLength)
-            return "${email.substring(0, 2)}${
-                hiddenPart.substring(
-                    0,
-                    1
-                )
-            }${email.substring(atIndex)}"
+            if (atIndex != -1) {
+                val hiddenLength = atIndex - 2 // Adjust the calculation here
+                val hiddenPart = "*".repeat(hiddenLength.coerceAtLeast(0))
+                return "${email.substring(0, 2)}${hiddenPart}${email.substring(atIndex)}"
+            } else {
+                // Handle the case where "@" symbol is not found in the email
+                return email
+            }
         }
-
         fun bind(forumItem: Forum) {
 
             itemView.apply {
@@ -211,6 +210,11 @@ class ForumAdapter(
                 val emptyReplyDescError = popupView.findViewById<TextView>(R.id.emptyReplyDescError)
                 val editTextInputLayoutDescription =
                     popupView.findViewById<TextInputLayout>(R.id.forumDescription)
+                val backgroundDimmer = popupView.findViewById<View>(R.id.backgroundDimmer)
+                val popUpCloseButton =
+                    popupView.findViewById<Button>(R.id.popUpCloseButton)
+                backgroundDimmer.visibility = View.VISIBLE
+
 
                 val forumId = forumItems[adapterPosition].id
                 Log.d("ForumAdapter", "Forum ID: $forumId")
@@ -255,8 +259,9 @@ class ForumAdapter(
                             }
                     }
                 }
-
-                popupWindow.showAsDropDown(anchorView)
+                popUpCloseButton.setOnClickListener {
+                    popupWindow.dismiss()
+                }
             }
         }
 
@@ -290,126 +295,125 @@ class ForumAdapter(
 
         private fun delete(id: String) {
 
-            val inflater =
-                context.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val popupView = inflater.inflate(R.layout.deletepopup, null)
-            val deleteButton = popupView.findViewById<Button>(R.id.btnDelMessagePopUp)
+            if (!activity.isFinishing && !activity.isDestroyed) {
+                val inflater =
+                    context.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val popupView = inflater.inflate(R.layout.deletepopup, null)
+                val deleteButton = popupView.findViewById<Button>(R.id.btnDelMessagePopUp)
+                val width = LinearLayout.LayoutParams.MATCH_PARENT
+                val height = LinearLayout.LayoutParams.WRAP_CONTENT
+                val backgroundDimmer = popupView.findViewById<View>(R.id.backgroundDimmer)
+                backgroundDimmer.visibility = View.VISIBLE
+                val popUpCloseButton =
+                    popupView.findViewById<Button>(R.id.popUpCloseButton)
+                popupWindow = PopupWindow(popupView, width, height, true)
+                popupWindow?.showAtLocation(
+                    popupView,
+                    Gravity.CENTER_HORIZONTAL,
+                    0,
+                    -405
+                )
+                popupWindow?.showAsDropDown(deletebuttonForum, 0, 0)
 
-            val width = LinearLayout.LayoutParams.MATCH_PARENT
-            val height = LinearLayout.LayoutParams.WRAP_CONTENT
-            popupWindow = PopupWindow(popupView, width, height, true)
-            popupWindow?.showAtLocation(
-                popupView,
-                Gravity.CENTER_HORIZONTAL,
-                0,
-                -405
-            )
-            popupWindow?.showAsDropDown(deletebuttonForum, 0, 0)
-
-            deleteButton.setOnClickListener {
-                val newBookRef = db.collection("forum").document(id)
-                newBookRef.delete().addOnSuccessListener {
-                    Toast.makeText(activity, "Post Successfully deleted", Toast.LENGTH_SHORT)
-                        .show()
+                deleteButton.setOnClickListener {
+                    val newBookRef = db.collection("forum").document(id)
+                    newBookRef.delete().addOnSuccessListener {
+                        Toast.makeText(activity, "Post Successfully deleted", Toast.LENGTH_SHORT)
+                            .show()
+                        popupWindow?.dismiss()
+                    }.addOnFailureListener { e ->
+                        Log.w("Firestore", "Error deleting document", e)
+                        Toast.makeText(activity, "Error deleting Post", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+                popUpCloseButton.setOnClickListener {
                     popupWindow?.dismiss()
-                }.addOnFailureListener { e ->
-                    Log.w("Firestore", "Error deleting document", e)
-                    Toast.makeText(activity, "Error deleting Post", Toast.LENGTH_SHORT)
-                        .show()
                 }
             }
-
 
         }
 
 
         private fun update(id: String, title: String, desc: String) {
+            if (!activity.isFinishing && !activity.isDestroyed) {
+                val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val popupView = inflater.inflate(R.layout.editpopup, null)
+                val saveButton = popupView.findViewById<Button>(R.id.btnAddMessagePopUp)
+                val addOrReply = popupView.findViewById<TextView>(R.id.addOrReply)
+                val emptyAddDescError = popupView.findViewById<TextView>(R.id.emptyAddDescError)
+                val emptyAddTitleError = popupView.findViewById<TextView>(R.id.emptyAddTitleError)
+                val editTextInputLayoutMessage = popupView.findViewById<TextInputLayout>(R.id.forumMessage)
+                val editTextInputLayoutDescription = popupView.findViewById<TextInputLayout>(R.id.forumDescription)
+                val width = LinearLayout.LayoutParams.MATCH_PARENT
+                val height = LinearLayout.LayoutParams.WRAP_CONTENT
+                val backgroundDimmer = popupView.findViewById<View>(R.id.backgroundDimmer)
+                val popUpCloseButton = popupView.findViewById<Button>(R.id.popUpCloseButton)
+                backgroundDimmer.visibility = View.VISIBLE
+                val popupWindow = PopupWindow(popupView, width, height, true)
 
-//            This is the popup to edit a field
-            val inflater =
-                context.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val popupView = inflater.inflate(R.layout.editpopup, null)
-            val saveButton = popupView.findViewById<Button>(R.id.btnAddMessagePopUp)
-            val addOrReply = popupView.findViewById<TextView>(R.id.addOrReply)
-            val emptyAddDescError = popupView.findViewById<TextView>(R.id.emptyAddDescError)
-            val emptyAddTitleError = popupView.findViewById<TextView>(R.id.emptyAddTitleError)
-            val editTextInputLayoutMessage =
-                popupView.findViewById<TextInputLayout>(R.id.forumMessage)
-            val editTextInputLayoutDescription =
-                popupView.findViewById<TextInputLayout>(R.id.forumDescription)
-            val width = LinearLayout.LayoutParams.MATCH_PARENT
-            val height = LinearLayout.LayoutParams.WRAP_CONTENT
-            popupWindow = PopupWindow(popupView, width, height, true)
+                addOrReply.text = "Edit Post"
+                popupWindow.showAtLocation(popupView, Gravity.CENTER_HORIZONTAL, 0, -405)
+                val messageEditText = editTextInputLayoutMessage.editText
+                val descriptionEditText = editTextInputLayoutDescription.editText
+                if (messageEditText != null) {
+                    messageEditText.setText(title)
+                }
+                if (descriptionEditText != null) {
+                    descriptionEditText.setText(desc)
+                }
+                popupWindow.showAsDropDown(editTextInputLayoutMessage, 0, 0)
 
-            addOrReply.text = "Edit Post"
-            popupWindow?.showAtLocation(
-                popupView,
-                Gravity.CENTER_HORIZONTAL,
-                0,
-                -405
-            )
-            val messageEditText = editTextInputLayoutMessage?.editText
-            val descriptionEditText = editTextInputLayoutDescription?.editText
-            messageEditText?.setText(title)
-            descriptionEditText?.setText(desc)
-            messageEditText?.doOnTextChanged { text, _, _, _ ->
-                // handle text changes here
-            }
-
-            descriptionEditText?.doOnTextChanged { text, _, _, _ ->
-                // handle text changes here
-            }
-            popupWindow?.showAsDropDown(editbuttonForum, 0, 0)
-
-            emptyAddTitleError.visibility = View.GONE
-            emptyAddDescError.visibility = View.GONE
-            saveButton.setOnClickListener {
-                if (messageEditText?.text.toString()
-                        .isEmpty() && descriptionEditText?.text.toString().isEmpty()
-                ) {
-                    emptyAddTitleError.visibility = View.VISIBLE
-                    emptyAddTitleError.text = "Please Enter Title"
-                    emptyAddDescError.visibility = View.VISIBLE
-                    emptyAddDescError.text = "Please Enter Description"
-                } else if (descriptionEditText?.text.toString().isEmpty()) {
-                    emptyAddTitleError.visibility = View.GONE
-                    emptyAddDescError.visibility = View.VISIBLE
-                    emptyAddDescError.text = "Please Enter Description"
-                } else if (messageEditText?.text.toString().isEmpty()) {
-                    emptyAddDescError.visibility = View.GONE
-                    emptyAddTitleError.visibility = View.VISIBLE
-                    emptyAddTitleError.text = "Please Enter Description"
-                } else {
-
-                    forum_collection_ref.document(id)
-                        .update(
-                            mapOf(
-                                "title" to messageEditText?.text.toString(),
-                                "description" to descriptionEditText?.text.toString(),
-                                "edited" to true
+                emptyAddTitleError.visibility = View.GONE
+                emptyAddDescError.visibility = View.GONE
+                saveButton.setOnClickListener {
+                    val titleText = messageEditText?.text.toString()
+                    val descText = descriptionEditText?.text.toString()
+                    if (titleText.isEmpty() && descText.isEmpty()) {
+                        emptyAddTitleError.visibility = View.VISIBLE
+                        emptyAddTitleError.text = "Please Enter Title"
+                        emptyAddDescError.visibility = View.VISIBLE
+                        emptyAddDescError.text = "Please Enter Description"
+                    } else if (descText.isEmpty()) {
+                        emptyAddTitleError.visibility = View.GONE
+                        emptyAddDescError.visibility = View.VISIBLE
+                        emptyAddDescError.text = "Please Enter Description"
+                    } else if (titleText.isEmpty()) {
+                        emptyAddDescError.visibility = View.GONE
+                        emptyAddTitleError.visibility = View.VISIBLE
+                        emptyAddTitleError.text = "Please Enter Description"
+                    } else {
+                        forum_collection_ref.document(id)
+                            .update(
+                                mapOf(
+                                    "title" to titleText,
+                                    "description" to descText,
+                                    "edited" to true
+                                )
                             )
-                        )
-                        .addOnSuccessListener {
-                            Toast.makeText(
-                                activity,
-                                "Message Edited",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            .addOnSuccessListener {
+                                Toast.makeText(
+                                    activity,
+                                    "Message Edited",
+                                    Toast.LENGTH_SHORT
+                                ).show()
 
-                            popupWindow?.dismiss()
-                        }
-                        .addOnFailureListener { exception ->
-                            Toast.makeText(
-                                activity,
-                                "Failed to Update ID: ${exception.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+                                popupWindow.dismiss()
+                            }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(
+                                    activity,
+                                    "Failed to Update: ${exception.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
 
+                    }
+                }
+                popUpCloseButton.setOnClickListener {
+                    popupWindow.dismiss()
                 }
             }
-
-
         }
     }
 }

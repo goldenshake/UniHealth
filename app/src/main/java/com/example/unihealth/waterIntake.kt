@@ -61,22 +61,26 @@ class waterIntake : AppCompatActivity() {
 
     private fun setRepeatingAlarm() {
         val intervalMinutes = enterMinutes.text.toString().toLongOrNull() ?: return
+        if (intervalMinutes <= 0) {
+            // Show error message or handle invalid input
+            return
+        }
+
         val alarmIntervalMillis = intervalMinutes * 60 * 1000 // Convert minutes to milliseconds
 
         val alarmIntent = Intent(this, AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent,
-            PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_IMMUTABLE)
 
         // Set repeating alarm to trigger every x minutes
         alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis(),
+            System.currentTimeMillis() + alarmIntervalMillis, // Add the interval to the current time
             alarmIntervalMillis,
             pendingIntent
         )
 
         // Show notification after setting the alarm
-        showNotification("Repeating Alarm Set", "Alarm will trigger every $intervalMinutes minutes")
+        showNotification("Repeating Alarm Set", "Alarm will trigger every $intervalMinutes minute(s)")
     }
 
     fun showNotification(title: String, content: String) {
@@ -93,6 +97,6 @@ class waterIntake : AppCompatActivity() {
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // Display notification when the alarm triggers
-        (context as waterIntake).showNotification("Fitness App ", "It's time to drink some water!")
+        (context as waterIntake).showNotification("UniHealth", "It's time to drink some water!")
     }
 }

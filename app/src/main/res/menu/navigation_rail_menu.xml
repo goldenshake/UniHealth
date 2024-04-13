@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_item"
+        android:title="UniHealth+">
+
+        <menu>
+            <item
+                android:id="@+id/MealPlans"
+                android:enabled="true"
+                android:icon="@drawable/tofu"
+                android:title="Meal Plans" />
+            <item
+                android:id="@+id/Workout"
+                android:enabled="true"
+                android:icon="@drawable/barbell"
+                android:title="Workout Plan" />
+            <item
+                android:id="@+id/Forums"
+                android:enabled="true"
+                android:icon="@drawable/chat"
+                android:title="Forums" />
+            <item
+                android:id="@+id/Challenges"
+                android:enabled="true"
+                android:icon="@drawable/goal"
+                android:title="Challenges" />
+            <item
+                android:id="@+id/WaterIntake"
+                android:enabled="true"
+                android:icon="@drawable/drop"
+                android:title="Water Intake" />
+        </menu>
+    </item>
+</menu>

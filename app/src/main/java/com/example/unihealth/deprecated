@@ -1,0 +1,767 @@
+//    val mealList = listOf(
+//        RecipeMealPlansDB(
+//            "Stir-Fried Tofu with Vegetables",
+//            listOf(
+//                "Firm tofu, cubed",
+//                "Broccoli florets",
+//                "Bell peppers(red, green, yellow)",
+//                "Snow peas",
+//                "Carrots, julienned",
+//                "Garlic, minced",
+//                "Soy sauce",
+//                "Sesame oil",
+//                "Brown rice(optional, for serving)"
+//            ),
+//            listOf(
+//                "150g Firm tofu, cubed",
+//                "1 cup Broccoli florets",
+//                "1/2 cup Bell peppers(red, green, yellow)",
+//                "1/2 cup Snow peas",
+//                "1/2 cup Carrots, julienned",
+//                "1 clove Garlic, minced",
+//                "1 tbsp Soy sauce",
+//                "1 tsp Sesame oil",
+//                "Brown rice(optional, for serving)"
+//            ),
+//            300,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Turkey and Vegetable Quinoa Bowl",
+//            listOf(
+//                "Lean ground turkey",
+//                "Quinoa, cooked",
+//                "Zucchini, diced",
+//                "Yellow squash, diced",
+//                "Red bell pepper, diced",
+//                "Onion, diced",
+//                "Garlic, minced",
+//                "Olive oil",
+//                "Salt and pepper to taste",
+//                "Fresh parsley for garnish"
+//            ),
+//            listOf(
+//                "200g Lean ground turkey",
+//                "1 cup Quinoa, cooked",
+//                "1/2 cup Zucchini, diced",
+//                "1/2 cup Yellow squash, diced",
+//                "1/2 cup Red bell pepper, diced",
+//                "1/4 cup Onion, diced",
+//                "1 clove Garlic, minced",
+//                "1 tbsp Olive oil",
+//                "Salt and pepper to taste",
+//                "Fresh parsley for garnish"
+//            ),
+//            400,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Black Bean Burger with avocado Cream",
+//            listOf(
+//                "Black Beans",
+//                "Zucchini",
+//                "Bell Pepper",
+//                "Flaxseed",
+//                "Chili Powder",
+//                "Smoked Paprika",
+//                "Avocado",
+//                "Lettuce Wrap"
+//            ),
+//            listOf(
+//                "1 cup Black Beans",
+//                "1/2 cup Zucchini",
+//                "1/2 cup Bell Pepper",
+//                "1 tbsp Flaxseed",
+//                "1 tsp Chili Powder",
+//                "1 tsp Smoked Paprika",
+//                "1/4 Avocado",
+//                "Lettuce Wrap"
+//            ),
+//            400,
+//            listOf("Vegetarian", "Low Carbs")
+//        ),
+//        RecipeMealPlansDB(
+//            "Grilled Lemon Herb Chicken with Quinoa Salad",
+//            listOf(
+//                "Boneless, skinless chicken breasts",
+//                "Lemon",
+//                "Olive oil",
+//                "Garlic, minced",
+//                "Oregano",
+//                "Dried thyme",
+//                "Salt and pepper",
+//                "Quinoa",
+//                "Cherry tomatoes",
+//                "Cucumber",
+//                "Red onion",
+//                "Fresh parsley",
+//                "Olive oil"
+//            ),
+//            listOf(
+//                "200g Boneless, skinless chicken breasts",
+//                "1 Lemon",
+//                "1 tbsp Olive oil",
+//                "1 clove Garlic, minced",
+//                "1 tsp Oregano",
+//                "1 tsp Dried thyme",
+//                "Salt and pepper",
+//                "1/2 cup Quinoa",
+//                "1/2 cup Cherry tomatoes",
+//                "1/2 cup Cucumber",
+//                "1/4 cup Red onion",
+//                "Fresh parsley",
+//                "Olive oil"
+//            ),
+//            450,
+//            listOf("Nut Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Spaghetti with Tomato Basil Sauce",
+//            listOf(
+//                "Spaghetti pasta",
+//                "Olive oil",
+//                "Garlic",
+//                "Crushed tomatoes",
+//                "Dried basil",
+//                "Salt and pepper",
+//                "Fresh basil leaves"
+//            ),
+//            listOf(
+//                "200g Spaghetti pasta",
+//                "1 tbsp Olive oil",
+//                "1 clove Garlic",
+//                "1 cup Crushed tomatoes",
+//                "1 tsp Dried basil",
+//                "Salt and pepper",
+//                "Fresh basil leaves"
+//            ),
+//            390,
+//            listOf("Nut Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Salmon with Roasted Vegetables",
+//            listOf(
+//                "Salmon fillets",
+//                "Asparagus spears",
+//                "Brussels sprouts, halved",
+//                "Cherry tomatoes",
+//                "Red onion, sliced",
+//                "Olive oil",
+//                "Lemon juice",
+//                "Garlic powder",
+//                "Paprika",
+//                "Salt and pepper to taste"
+//            ),
+//            listOf(
+//                "200g Salmon fillets",
+//                "6 Asparagus spears",
+//                "1 cup Brussels sprouts, halved",
+//                "1/2 cup Cherry tomatoes",
+//                "1/4 cup Red onion, sliced",
+//                "1 tbsp Olive oil",
+//                "1 tbsp Lemon juice",
+//                "1/2 tsp Garlic powder",
+//                "1/2 tsp Paprika",
+//                "Salt and pepper to taste"
+//            ),
+//            380,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Hemp Seed and Chia Pudding(with Berries)",
+//            listOf(
+//                "Hemp Seeds",
+//                "Chia Seeds",
+//                "Almond Milk",
+//                "Coconut Milk",
+//                "Berries(fresh or frozen)"
+//            ),
+//            listOf(
+//                "2 tbsp Hemp Seeds",
+//                "2 tbsp Chia Seeds",
+//                "1/2 cup Almond Milk",
+//                "1/4 cup Coconut Milk",
+//                "Berries(fresh or frozen)"
+//            ),
+//            300,
+//            listOf("Vegan", "Low Carbs")
+//        ),
+//        RecipeMealPlansDB(
+//            "Vegan Lentil Salad",
+//            listOf(
+//                "Cooked green lentils",
+//                "Diced cucumber",
+//                "Cherry tomatoes, halved",
+//                "Chopped red onion",
+//                "Chopped fresh parsley",
+//                "Lemon juice",
+//                "Extra virgin olive oil",
+//                "Dijon mustard",
+//                "Salt and pepper"
+//            ),
+//            listOf(
+//                "1 cup Cooked green lentils",
+//                "1/2 cup Diced cucumber",
+//                "1/2 cup Cherry tomatoes, halved",
+//                "1/4 cup Chopped red onion",
+//                "1/4 cup Chopped fresh parsley",
+//                "1 tbsp Lemon juice",
+//                "1 tbsp Extra virgin olive oil",
+//                "1 tsp Dijon mustard",
+//                "Salt and pepper"
+//            ),
+//            270,
+//            listOf("Vegan", "Low Carbs")
+//        ),
+//        RecipeMealPlansDB(
+//            "Lentil Vegetable Soup",
+//            listOf(
+//                "Dried green lentils",
+//                "Vegetable broth",
+//                "Onion",
+//                "Carrots",
+//                "Celery",
+//                "Garlic",
+//                "Dried thyme",
+//                "Dried oregano",
+//                "Bay leaf",
+//                "Salt and pepper",
+//                "Spinach",
+//                "Olive oil"
+//            ),
+//            listOf(
+//                "1 cup Dried green lentils",
+//                "4 cups Vegetable broth",
+//                "1/2 Onion",
+//                "1/2 cup Carrots",
+//                "1/2 cup Celery",
+//                "1 clove Garlic",
+//                "1 tsp Dried thyme",
+//                "1 tsp Dried oregano",
+//                "1 Bay leaf",
+//                "Salt and pepper",
+//                "1 cup Spinach",
+//                "1 tbsp Olive oil"
+//            ),
+//            280,
+//            listOf("Nut Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Spicy Tofu Scramble",
+//            listOf(
+//                "Saute Crumbled tofu",
+//                "Chopped Onions",
+//                "Bell peppers",
+//                "Chili Powder",
+//                "Vegetable Broth"
+//            ),
+//            listOf(
+//                "200g Saute Crumbled tofu",
+//                "1/4 cup Chopped Onions",
+//                "1/2 cup Bell peppers",
+//                "1 tsp Chili Powder",
+//                "1/4 cup Vegetable Broth"
+//            ),
+//            300,
+//            listOf("Vegan", "Low Carbs")
+//        ),
+//        RecipeMealPlansDB(
+//            "Cauliflower Curry",
+//            listOf(
+//
+//
+//                "Olive oil",
+//                "Yellow onion",
+//                "Garlic, minced",
+//                "Minced fresh ginger",
+//                "Yellow curry powder",
+//                "Cinnamon",
+//                "Cumin",
+//                "Sea salt",
+//                "Cayenne pepper",
+//                "Diced tomatoes",
+//                "Coconut milk or unsweetened coconut cream",
+//                "Large head of cauliflower, cut into florets",
+//                "Cooked rice (optional)",
+//                "Minced cilantro (optional)",
+//                "Warmed naan (optional)"
+//            ),
+//            listOf(
+//
+//
+//                "1 tablespoon extra-virgin olive oil",
+//                "1 medium yellow onion, diced",
+//                "4 cloves garlic, minced",
+//                "1 tablespoon minced fresh ginger",
+//                "3 tablespoons yellow curry powder",
+//                "2 teaspoons cinnamon",
+//                "2 teaspoons cumin",
+//                "2 teaspoons sea salt",
+//                "⅛ teaspoon cayenne pepper",
+//                "1 (14-ounce) can diced tomatoes",
+//                "3 (14-ounce) cans coconut milk or unsweetened coconut cream",
+//                "1 large head of cauliflower, cut into florets",
+//                "Cooked rice, for serving (optional)",
+//                "Minced cilantro, for serving (optional)",
+//                "Warmed naan, for serving (optional)"
+//            ),
+//            280,
+//            listOf("Vegan", "Vegetarian")
+//        ),
+//        RecipeMealPlansDB(
+//            "Christmas Salad",
+//            listOf(
+//                "Extra-virgin olive oil",
+//                "White wine vinegar (see Note)",
+//                "Grated clementine zest",
+//                "Fresh clementine juice",
+//                "Honey",
+//                "Dijon mustard",
+//                "Minced shallots",
+//                "Sea salt",
+//                "Freshly cracked black pepper",
+//                "Baby spinach",
+//                "Baby arugula",
+//                "Crumbled feta or goat cheese",
+//                "Clementines, segmented",
+//                "Pomegranate seeds or craisins",
+//                "Sliced almonds",
+//                "Minced chives (optional)"
+//            ),
+//            listOf(
+//                "½ cup extra-virgin olive oil",
+//                "1 tablespoon white wine vinegar (see Note)",
+//                "1 teaspoon grated clementine zest",
+//                "⅓ cup fresh clementine juice (from about 6 clementines)",
+//                "2 teaspoons honey",
+//                "1 teaspoon Dijon mustard",
+//                "2 tablespoons minced shallots",
+//                "¾ teaspoon sea salt",
+//                "¼ teaspoon freshly cracked black pepper",
+//                "5 ounces baby spinach (about 4 cups)",
+//                "5 ounces baby arugula (about 3 cups)",
+//                "4 ounces crumbled feta or goat cheese",
+//                "6 clementines, segmented",
+//                "½ cup pomegranate seeds or craisins",
+//                "⅓ cup sliced almonds",
+//                "¼ cup minced chives (optional)"
+//            ),
+//            283,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Grilled Chicken Salad",
+//            listOf(
+//                "Grilled chicken breast",
+//                "Mixed salad greens (lettuce, spinach, arugula)",
+//                "Cherry tomatoes",
+//                "Cucumber",
+//                "Red onion",
+//                "Balsamic vinaigrette dressing"
+//            ),
+//            listOf(
+//                "200g Grilled chicken breast",
+//                "2 cups Mixed salad greens (lettuce, spinach, arugula)",
+//                "1/2 cup Cherry tomatoes",
+//                "1/2 cup Cucumber",
+//                "1/4 cup Red onion",
+//                "Balsamic vinaigrette dressing"
+//            ),
+//            350,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Homemade Fried Rice",
+//            listOf(
+//                "Cooked white rice, preferably day-old",
+//                "Large eggs, beaten",
+//                "Sea salt",
+//                "Toasted sesame oil",
+//                "Coconut aminos",
+//                "Vegetable oil",
+//                "Medium carrots, finely diced",
+//                "Small yellow onion, finely chopped",
+//                "Garlic, minced",
+//                "Frozen peas, thawed",
+//                "Green onions, chopped",
+//                "Soy sauce"
+//            ),
+//            listOf(
+//                "4 cups cooked white rice, preferably day-old",
+//                "3 large eggs, beaten",
+//                "¼ teaspoon sea salt, plus more to taste",
+//                "2½ teaspoons toasted sesame oil",
+//                "⅓ cup coconut aminos",
+//                "3 tablespoons vegetable oil",
+//                "2 medium carrots, finely diced (about 1 cup)",
+//                "1 small yellow onion, finely chopped (about 1 cup)",
+//                "3 cloves garlic, minced",
+//                "¾ cup frozen peas, thawed",
+//                "4 green onions, chopped",
+//                "2 tablespoons soy sauce"
+//            ),
+//            350,
+//            listOf("Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Dairy Free Mac and Cheese",
+//            listOf(
+//                "Russet potatoes, peeled and cut into 2-inch pieces",
+//                "Elbow pasta",
+//                "Chicken or veggie stock",
+//                "Vegan cheese shreds",
+//                "Nutritional yeast",
+//                "Garlic powder",
+//                "Onion powder",
+//                "Kosher salt",
+//                "Turmeric",
+//                "Paprika",
+//                "Fresh lemon juice",
+//                "Vegan butter, melted",
+//                "Panko bread crumbs"
+//            ),
+//            listOf(
+//                "1½ pounds russet potatoes, peeled and cut into 2-inch pieces",
+//                "16 ounces elbow pasta",
+//                "2 cups chicken or veggie stock",
+//                "2 cups vegan cheese shreds (we like Violife Mozzarella Shreds)",
+//                "½ cup nutritional yeast",
+//                "1 teaspoon garlic powder",
+//                "½ teaspoon onion powder",
+//                "1½ teaspoons kosher salt",
+//                "¼ teaspoon turmeric",
+//                "¼ teaspoon paprika",
+//                "1½ teaspoons fresh lemon juice (from 1 lemon)",
+//                "½ cup + 2 tablespoons vegan butter, melted",
+//                "¾ cup panko bread crumbs"
+//            ),
+//            506,
+//            listOf("Vegetarian", "Dairy Free")
+//        ),
+//        RecipeMealPlansDB(
+//            "Vegetable Stir Fry",
+//            listOf(
+//                "Vegetable oil",
+//                "Sliced crimini mushrooms",
+//                "Broccoli florets",
+//                "Baby corn, drained (optional)",
+//                "Red bell pepper, thinly sliced",
+//                "Snap peas",
+//                "Sliced zucchini",
+//                "Carrot rounds",
+//                "Low-sodium soy sauce or tamari",
+//                "Toasted sesame oil",
+//                "Garlic, minced",
+//                "Freshly grated ginger",
+//                "Brown sugar or honey",
+//                "Red pepper flakes (optional)",
+//                "Cornstarch or arrowroot starch",
+//                "Thinly sliced green onions"
+//            ),
+//            listOf(
+//                "1 tablespoon vegetable oil",
+//                "1 cup sliced crimini mushrooms",
+//                "2 cups broccoli florets",
+//                "1 15-ounce can baby corn, drained (optional)",
+//                "1 red bell pepper, thinly sliced",
+//                "4 ounces snap peas",
+//                "1 cup sliced zucchini",
+//                "1 cup peeled and thinly sliced carrot rounds",
+//                "½ cup low-sodium soy sauce or tamari",
+//                "1 tablespoon toasted sesame oil",
+//                "4 cloves garlic, minced",
+//                "2 teaspoons freshly grated ginger",
+//                "¼ cup brown sugar or honey",
+//                "Pinch red pepper flakes (optional)",
+//                "2 tablespoons cornstarch or arrowroot starch",
+//                "¼ cup thinly sliced green onions"
+//            ),
+//            146,
+//            listOf("Vegetarian", "Vegan")
+//        ),
+//        RecipeMealPlansDB(
+//            "Grated beet Salad",
+//            listOf(
+//
+//                "Extra-virgin olive oil",
+//                "Sherry vinegar",
+//                "Small shallot, minced",
+//                "Dijon mustard",
+//                "Honey",
+//                "Grated lemon zest",
+//                "Sea salt",
+//                "Freshly cracked black pepper",
+//                "Red beets, peeled and grated",
+//                "Large carrot, peeled and grated",
+//                "Chopped fresh flat leaf parsley",
+//                "Chopped fresh mint"
+//            ),
+//            listOf(
+//
+//                "2 tablespoons extra-virgin olive oil",
+//                "2 tablespoons sherry vinegar",
+//                "1 small shallot, minced",
+//                "1 teaspoon Dijon mustard",
+//                "1 teaspoon honey",
+//                "½ teaspoon grated lemon zest",
+//                "½ teaspoon sea salt",
+//                "¼ teaspoon freshly cracked black pepper",
+//                "1 pound red beets, peeled and grated",
+//                "1 large carrot, peeled and grated",
+//                "¼ cup chopped fresh flat leaf parsley",
+//                "¼ cup chopped fresh mint"
+//            ),
+//            100,
+//            listOf("Vegetarian", "Vegan")
+//        ),
+//        RecipeMealPlansDB(
+//            "Pesto Spaghetti",
+//            listOf(
+//                "Spaghetti",
+//                "Basil pesto, store-bought or homemade",
+//                "Arugula",
+//                "Cherry tomatoes, halved",
+//                "Fresh basil leaves (optional)",
+//                "Parmesan cheese (optional)"
+//            ),
+//            listOf(
+//
+//
+//                "12 ounces spaghetti",
+//                "1 cup basil pesto, store-bought or homemade",
+//                "2 cups arugula",
+//                "Cherry tomatoes, halved, for serving",
+//                "Fresh basil leaves, for serving (optional)",
+//                "Parmesan cheese, for serving (optional)"
+//            ),
+//            350,
+//            listOf("Vegetarian")
+//        )
+//    )
+
+
+
+
+for (recipe in mealList) {
+            // Create a new document with a generated ID
+            db.collection("meal")
+                .add(recipe)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(
+                        this@MealPlans,
+                        "Meals Saved",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(
+                        this@MealPlans,
+                        "Meals Not Saved",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+
+
+
+        <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/mealPlanCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginEnd="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <ImageView
+                                    android:id="@+id/dietimage"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/dietplan" />
+
+                                <TextView
+                                    android:id="@+id/dietplantitle"
+                                    style="@style/TextAppearance.MaterialComponents.Headline3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Diet Plans"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/workoutCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <ImageView
+                                    android:id="@+id/header_image"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/workoutplan" />
+
+                                <TextView
+                                    android:id="@+id/workoutplantitle"
+                                    style="@style/TextAppearance.MaterialComponents.Headline3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Workout Plans"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/supportCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <ImageView
+                                    android:id="@+id/support"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/support" />
+
+                                <TextView
+                                    android:id="@+id/supporttitle"
+                                    style="@style/TextAppearance.MaterialComponents.Headline3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Forums"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/challengesCard"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <ImageView
+                                    android:id="@+id/challengeImage"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/effort" />
+
+                                <TextView
+                                    android:id="@+id/challengeTitle"
+                                    style="@style/TextAppearance.MaterialComponents.Headline3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Challenges"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/waterIntakeCard"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <ImageView
+                                    android:id="@+id/waterImage"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/water" />
+
+                                <TextView
+                                    android:id="@+id/waterTitle"
+                                    style="@style/TextAppearance.MaterialComponents.Headline3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Water Intake"
+                                    android:textAlignment="center"
+                                    android:textSize="20sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/welcomeText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="casual"
+                                        android:text="Welcome"
+                                        android:textSize="30sp" />
+
+                                    <TextView
+                                        android:id="@+id/userDynamicName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="8dp"
+                                        android:fontFamily="casual"
+                                        android:textSize="30sp" />
+
+                                </LinearLayout>

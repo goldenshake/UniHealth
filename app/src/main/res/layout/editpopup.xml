@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <View
+        android:id="@+id/backgroundDimmer"
         android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,12 +24,28 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/popUpCloseButton"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/close_svgrepo_com_24"
+                    app:iconTint="@color/black" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/addOrReply"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text=""/>
+                android:text=""
+                android:textAlignment="center" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/forumMessage"
@@ -34,6 +58,7 @@
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/emptyAddTitleError"
                 android:layout_width="wrap_content"
@@ -57,6 +82,7 @@
                     android:scrollbars="vertical" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/emptyAddDescError"
                 android:layout_width="wrap_content"
@@ -74,5 +100,5 @@
                 android:text="Save" />
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

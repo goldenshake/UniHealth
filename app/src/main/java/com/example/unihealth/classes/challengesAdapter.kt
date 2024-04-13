@@ -44,6 +44,8 @@ class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         descriptionView.text = challenge.description
         difficultyTextView.text = challenge.difficulty
         challengeCancelButton.visibility = View.GONE
+
+
         // Check if the user has already started this challenge
         studentChallengeCollectionRef.whereEqualTo("email", currentEmail)
             .whereArrayContains("challengeTitle", challenge.title)
@@ -80,14 +82,19 @@ class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                                 Log.d(TAG, "Challenge title added successfully")
                                 challengeCancelButton.visibility = View.VISIBLE
                                 challengeStartButton.visibility = View.GONE
+                                document.reference.update("emptyChallenges", false)
                             }
                             .addOnFailureListener { e ->
                                 // Handle failure
                                 Log.e(TAG, "Error adding challenge title", e)
                             }
+
+
+
+
                     } else {
                         // If no document exists, create a new one
-                        val studentChallenge = ChallengesDB(mutableListOf(challenge.title), currentEmail)
+                        val studentChallenge = ChallengesDB(mutableListOf(challenge.title), false, currentEmail)
                         studentChallengeCollectionRef.add(studentChallenge)
                             .addOnSuccessListener { documentReference ->
                                 // Handle success
@@ -126,6 +133,21 @@ class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                                 // Handle failure
                                 Log.e(TAG, "Error removing challenge title", e)
                             }
+                        if (challengeTitles != null) {
+                            if(challengeTitles.isEmpty()){
+                                document.reference.update("emptyChallenges", true)
+                                    .addOnSuccessListener {
+                                        // Handle success
+                                        Log.d(TAG, "Set to true")
+                                        challengeCancelButton.visibility = View.GONE
+                                        challengeStartButton.visibility = View.VISIBLE
+                                    }
+                                    .addOnFailureListener { e ->
+                                        // Handle failure
+                                        Log.e(TAG, "Error setting to true", e)
+                                    }
+                            }
+                        }
                     }
                 }
                 .addOnFailureListener { e ->
