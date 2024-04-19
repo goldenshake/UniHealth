@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.unihealth.classes.ChallengesDB
+import com.example.unihealth.classes.Constants
 import com.example.unihealth.classes.Student
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -69,8 +70,16 @@ class signup : AppCompatActivity() {
                             // Navigate to the next activity or perform any other action
                             val student = Student(fname, lname, email)
                             student_collection_ref.add(student)
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
+                            userAuth.signInWithEmailAndPassword(email, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        // Proceed to the next activity or perform any other action
+                                        val intent = Intent(this, MainHome::class.java)
+                                        intent.putExtra(Constants.INTENT_EMAIL, email)
+                                        startActivity(intent)
+
+                                    }
+                                }
                         } else {
                             Toast.makeText(
                                 this@signup,
